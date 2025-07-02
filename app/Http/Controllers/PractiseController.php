@@ -118,7 +118,7 @@ class PractiseController extends Controller
     public function viewMaterialById(string $id)
     {
         //
-        $material = DB::table('questions_and_answers')->where('id', $id)->select('material', 'material_title')->first();
+        $material = DB::table('questions_and_answers')->where('learning_cycle', $id)->whereNotNull('material')->select('material', 'material_title')->first();
         if (!$material) {
             return response()->json(['message' => 'Material not found'], 404);
         }

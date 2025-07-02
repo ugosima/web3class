@@ -1,4 +1,4 @@
-<div style="font-family: Arial, sans-serif; max-width: 700px; margin: auto; line-height: 1.6; color: #333;">
+<div class=" p-6 rounded-lg shadow-md dark:bg-gray-800 dark:text-gray-400">
   <br><br>
     <p> <b>Dear learners,</b></p>
 <br>

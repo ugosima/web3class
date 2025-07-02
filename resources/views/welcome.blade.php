@@ -12,7 +12,7 @@
     <!-- Header -->
     <header class="header">
         <div class="container">
-            <div class="logo">Learn web3 and crypto<span>&</span>Earn</div>
+            <div class="logo">Learn<span>WEB3 </span></div>
             <nav class="nav">
                 <a href="#features">Features</a>
                 <a href="#join">Join</a>
@@ -25,8 +25,8 @@
     <!-- Hero Section -->
     <section class="hero">
         <div class="container">
-            <h1>Learn New Skills. Earn Real Rewards.</h1>
-            <p>Gamify your growth. Every lesson completed brings you closer to something valuable.</p>
+            <h1>WEB3: The new world of digital finance. </h1>
+            <p>Every lesson completed brings you closer to something valuable.</p>
             <a href="#join" class="btn-primary">Get Started</a>
         </div>
     </section>

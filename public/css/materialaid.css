@@ -1,0 +1,58 @@
+
+    @media (prefers-color-scheme: light) {
+  .quickbox {
+    background-color: #ffffff;
+    color: #000000;
+  }
+
+  .ideabulb
+    {
+        color:  #000000;
+         font-weight: bold;
+    }
+}
+@media (prefers-color-scheme: dark) {
+  .quickbox {
+    background-color: pink;
+    color: black;
+    opacity: 0.9;
+  }
+  .ideabulb
+    {
+        background-color: black;
+        color:  red;
+        font-weight: bold;
+        padding-top: 3px;
+        border-radius: 50%;
+        font-style: normal;
+    }
+}
+
+.qbheading
+{
+      color: greenyellow;
+      background-color: black;
+      padding: 10px;
+}
+
+.quickbox
+{
+    padding: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-radius: 10px;
+    font-size: smaller;
+    font-style: italic;
+}
+
+#materialviewbox ul 
+{
+    list-style-type: none;
+    padding-left: 0px;
+    gap: 20px;
+
+}
+ #materialviewbox ul li::before {
+    margin-right: 0.5em;
+    margin-bottom: 10px;
+  }
