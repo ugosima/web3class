@@ -9,9 +9,9 @@
 
     
 <div class="p-6 max-w-6xl mx-auto">
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 dark:bg-gray-900 text-white">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 dark:bg-gray-900 dark:text-gray-400">
         <!-- Profile Card -->
-        <div class="bg-white text-black p-4 rounded-2xl shadow col-span-1 dark:bg-gray-900 text-white ">
+        <div class=" p-4 rounded-2xl shadow col-span-1 dark:bg-gray-900 dark:text-gray-400">
             @php
                 $name = explode(" ", $user->name);
             @endphp
@@ -23,7 +23,7 @@
         </div>
 
         <!-- Recent Activities -->
-        <div class="bg-white text-black p-4 rounded-2xl shadow col-span-2 dark:bg-gray-900 text-white">
+        <div class=" p-4 rounded-2xl shadow col-span-2 dark:bg-gray-900 dark:text-gray-400">
             <h2 class="text-xl font-semibold mb-4"> LESSON PROGRESS ({{$user->lesson_progress}})</h2>
 
             <ul>
@@ -52,8 +52,8 @@
                 </button>
             </h1>
 
-            <div id="material_list" class="hidden fixed inset-0 bg-white bg-opacity-50 flex items-center justify-center z-50 dark:bg-gray-900 text-gray-50">
-                <div class="bg-white p-6 rounded-lg shadow-lg max-w-md w-full dark:bg-gray-900 text-white">
+            <div id="material_list" class="hidden fixed inset-0 bg-opacity-20  flex items-center justify-center z-100 dark:bg-gray-900 dark:text-gray-400">
+                <div class=" p-6 rounded-lg shadow-lg max-w-md w-full   bg-black text-gray-300 dark:bg-gray-900 dark:text-gray-400">
                     <h3 class="text-lg font-semibold mb-4">Table of contents</h3>
                     <ul class="list-disc ml-6">
                         @foreach ($material_titles as $learning_cycle => $material_title)
@@ -61,7 +61,7 @@
                                 <li class="text-black-500"><a href="viewmaterial/{{$learning_cycle}}" >{{ $material_title }}</a></li>
                                 
                             @else
-                                <li class="text-black-500 dark:bg-gray-900 text-white">  &#128274;   {{ $material_title }} </li>
+                                <li class="text-black-500 dark:bg-gray-900 dark:text-gray-400">  &#128274;   {{ $material_title }} </li>
                             @endif
                         @endforeach
                     </ul>
@@ -75,7 +75,7 @@
 
     <!-- Available Courses -->
     @if ($user->lesson_progress == 0)
-        <div class="bg-white text-black p-4 rounded-2xl shadow mt-6 dark:bg-gray-900 dark:text-white">
+        <div class="p-4 rounded-2xl shadow mt-6 dark:bg-gray-900 dark:text-white">
 
                 <h2 class="text-xl font-semibold mb-4">Welcome to web3 for crypto class</h2>
 
@@ -86,13 +86,12 @@
 
        
     @else    
-    <div class="bg-white text-black p-6 rounded-2xl dark:bg-gray-900 text-gray-100 shadow mt-6">
-        <h2 class="text-xl text-red font-semibold mb-4">NEXT LESSON</h2>
+    <div class=" p-6 rounded-2xl dark:bg-gray-900  shadow mt-6">
+        <h2 class="text-xl font-semibold mb-4 dark:text-white ">NEXT LESSON</h2>
         <div>
-           
-             <h4 id="full_material"  class="text-xl dark:bg-gray-900 dark:text-green-500 font-semibold mb-4"> {{$material->material_title}} <hr> </h4>
+             <h1 id="full_material"  class="text-2xl te dark:bg-gray-900 dark:text-green-500 font-semibold mb-4"> {{$material->material_title}} <hr> </h1>
                 <br>
-                <div id="materialviewbox" class=" bg-white text-black dark:bg-gray-900 text-gray-400" >
+                <div id="materialviewbox" class="dark:bg-gray-900 dark:text-gray-400" >
                     
                     {{-- {!! $material->material !!} --}}
 
@@ -102,7 +101,7 @@
         </div>
         @if($material->lesson_video)
             <div class="w-full max-w-2xl mx-auto mt-6">
-                <h3 class=" bg-white text-black     dark:bg-gray-900 text-gray-400"><b> &rarrhk; Watch this for more understanding... </b></h3>
+                <h3 class=" dark:bg-gray-900 text-gray-400"><b> &rarrhk; Watch this for more understanding... </b></h3>
                 <iframe
                     width="100%"
                     height="360"
@@ -123,7 +122,7 @@
 
 
                 <h2 class="text-xl text-red-500 font-semibold mb-4">PRACTISE QUESTIONS ( Answer all)</h2>
-                <ul class="list-disc  bg-white text-black ml-6 dark:bg-gray-900 text-gray-400">
+                <ul class="list-disc ml-6 dark:bg-gray-900 dark:text-gray-400">
                     {{-- <li>Complete the lesson to unlock the next one.</li> --}}
                     <li>Answer all questions correctly.</li>
                     <li>For all wrong answer, watch Ads to continue.</li>
@@ -134,7 +133,7 @@
         <div class="grid grid-cols-1 md:grid-cols-1 gap-4">
 
                 
-            <form action="/question" id="ajaxForm" method="POST" class="bg-white text-black p-4 rounded shadow grid grid-cols-1 md:grid-cols-3 gap-4 dark:bg-gray-900 text-gray-400">
+            <form action="/question" id="ajaxForm" method="POST" class=" p-4 rounded shadow grid grid-cols-1 md:grid-cols-3 gap-4 dark:bg-gray-900 dark:text-gray-400">
                       @csrf        
                 @foreach ($questions as $item)  
                     <div class="p-4 border-b border-gray-300 md:border-b-0 md:border-l md:border-gray-300 ">

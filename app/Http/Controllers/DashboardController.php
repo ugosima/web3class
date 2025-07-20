@@ -28,7 +28,7 @@ class DashboardController extends Controller
         $material_titles = DB::table('questions_and_answers') ->whereNotNull('material_title')->pluck('material_title', 'learning_cycle');
         $prev_material = DB::table('questions_and_answers')->where('learning_cycle', $prev_quest)->select( 'material_title','learning_cycle')->first();
         if (!$prev_material) {
-            $prev_material = (object) ['material_title' => 'No previous material available', 'id' => null];
+            $prev_material = (object) ['material_title' => 'No previous material available', 'learning_cycle' => null];
         }
         $next_material = DB::table('questions_and_answers')->where('learning_cycle', $next_quest)->select('material_title')->first();
         if (!$next_material) {
