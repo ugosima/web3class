@@ -52,23 +52,8 @@
                 </button>
             </h1>
 
-            <div id="material_list" class="hidden fixed inset-0 bg-opacity-20  flex items-center justify-center z-100 dark:bg-gray-900 dark:text-gray-400">
-                <div class=" p-6 rounded-lg shadow-lg max-w-md w-full   bg-black text-gray-300 dark:bg-gray-900 dark:text-gray-400">
-                    <h3 class="text-lg font-semibold mb-4">Table of contents</h3>
-                    <ul class="list-disc ml-6">
-                        @foreach ($material_titles as $learning_cycle => $material_title)
-                            @if ($learning_cycle <= $user->lesson_progress)
-                                <li class="text-black-500"><a href="viewmaterial/{{$learning_cycle}}" >{{ $material_title }}</a></li>
-                                
-                            @else
-                                <li class="text-black-500 dark:bg-gray-900 dark:text-gray-400">  &#128274;   {{ $material_title }} </li>
-                            @endif
-                        @endforeach
-                    </ul>
-                    <button onclick="document.getElementById('material_list').classList.add('hidden')"  class="mt-4 px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700">Close</button>
-                </div>
-
-            </div>
+            <x-materiallist  :titles="$material_titles" :user="$user"/>
+        
 
         </div>
     </div>
@@ -136,11 +121,12 @@
             <form action="/question" id="ajaxForm" method="POST" class=" p-4 rounded shadow grid grid-cols-1 md:grid-cols-3 gap-4 dark:bg-gray-900 dark:text-gray-400">
                       @csrf        
                 @foreach ($questions as $item)  
-                    <div class="p-4 border-b border-gray-300 md:border-b-0 md:border-l md:border-gray-300 ">
-                        @php
+                 @php
                         $q_count = $loop->iteration;
+                        $div_id = 'question_' . $q_count;
                         @endphp
-
+                    <div class="p-4 border-b border-gray-300 md:border-b-0 md:border-l md:border-gray-300 q_box" id ="question_{{$item->id}}">
+                       
                     <span><b> {{$q_count}}. {{$item->question}} </b> </span>
                     <br><br>
 
@@ -231,8 +217,8 @@
 
                         /////returning all radios to normal colours before a response
                          document.querySelectorAll('input[type="radio"]').forEach(radio => {
-                            radio.style.accentColor = 'black';
-                            radio.parentElement.style.color = 'black'; // Reset the color of the parent element
+                            radio.style.accentColor = '#9ca3af';
+                            radio.parentElement.style.color = '#9ca3af';// Reset the color of the parent element
                         });
 
                                  // making the checked input elements red.
@@ -244,10 +230,13 @@
                                 });
 
                                  Object.entries(data.id_and_answers).forEach(([id, the_answer]) => {
-                                        
-                                   /////making the right answers color green
-                                    const answers = form.querySelector(`input[value="${the_answer}"]`); 
-                                    answers.style.color = 'green';     
+                                    
+                                    // Find the radio input with the given id and value
+                                    // and change its color to green
+                                   
+                                   let div_id = 'question_'+id;
+                                const answers = document.querySelector(`#${div_id} input[value="${the_answer}"]`);
+                                    answers.style.color = 'green';
                                     answers.style.accentColor = 'green'; 
                                     answers.style.backgroundColor = 'green'; 
                                     answers.parentElement.style.color = 'green'; 

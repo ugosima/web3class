@@ -55,12 +55,10 @@ class PractiseController extends Controller
             if ($ads_to_play == 0)  
             {
                     if ($incorrect_answer_scores > 0) {
-        
-                        // Auth::user()->update(['ads_to_playn' => 'new_value']);
-                        Auth::user()->increment('ads_to_play', $incorrect_answer_scores);
+                                Auth::user()->increment('ads_to_play', $incorrect_answer_scores);
                     }
                     else {
-                        // Correct answer logic
+                        // All correct answer logic
                         Auth::user()->increment('lesson_progress', 1);
                     }
 
@@ -69,9 +67,8 @@ class PractiseController extends Controller
 
 
             // Retrieve the rows from the database
-            $assocArray = $questions->pluck('answer')->toArray();
-
-
+            $assocArray = $questions->pluck('answer','id')->toArray();
+        
 
             return response()->json([
             'message' => 'success',
@@ -118,11 +115,24 @@ class PractiseController extends Controller
     public function viewMaterialById(string $id)
     {
         //
-        $material = DB::table('questions_and_answers')->where('learning_cycle', $id)->whereNotNull('material')->select('material', 'material_title')->first();
-        if (!$material) {
-            return response()->json(['message' => 'Material not found'], 404);
-        }
-        return view('viewmaterial', compact('material'));
+        $user =Auth::user();
+        $view_id = (int)$id;
+        if ($view_id <= $user->lesson_progress)
+        { 
+            $material = DB::table('questions_and_answers')->where('learning_cycle', $id)->whereNotNull('material')->select('material', 'material_title')->first();
+            $material_titles = DB::table('questions_and_answers') ->whereNotNull('material_title')->pluck('material_title', 'learning_cycle');
+
+            if (!$material) {
+                return response()->json(['message' => 'Material not found'], 404);
+            }
+            return view('viewmaterial', compact('material', 'view_id', 'user', 'material_titles'));
+         }
+        
+         else
+         { 
+             return view('viewmaterial', compact('material', 'view_id', 'user', 'material_titles'));
+
+         }
     }
 
     /**
