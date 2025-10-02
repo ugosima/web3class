@@ -1,17 +1,19 @@
 <x-app-layout>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
-            {{ __('Dashboard') }}
+            {{ __('DASHBOARD') }}
         </h2>
     </x-slot>
 
         <link rel="stylesheet" href="{{ asset('css/materialaid.css') }}">
+        {{-- <script src="https://cdn.tailwindcss.com"></script> --}}
 
-    
+
 <div class="p-6 max-w-6xl mx-auto">
     <div class="grid grid-cols-1 md:grid-cols-3 gap-6 dark:bg-gray-900 dark:text-gray-400">
         <!-- Profile Card -->
-        <div class=" p-4 rounded-2xl shadow col-span-1 dark:bg-gray-900 dark:text-gray-400">
+        <div class=" p-4 rounded-2xl shadow col-span-1 bg-blue-50 dark:bg-gray-900 dark:text-gray-400">
             @php
                 $name = explode(" ", $user->name);
             @endphp
@@ -23,19 +25,19 @@
         </div>
 
         <!-- Recent Activities -->
-        <div class=" p-4 rounded-2xl shadow col-span-2 dark:bg-gray-900 dark:text-gray-400">
-            <h2 class="text-xl font-semibold mb-4"> LESSON PROGRESS ({{$user->lesson_progress}})</h2>
+        <div class=" p-4 rounded-2xl shadow col-span-2 bg-blue-50 dark:bg-gray-900 dark:text-gray-400">
+            <h2 class="text-lg font-semibold mb-4"> LESSON PROGRESS ({{$user->lesson_progress}})</h2>
 
             <ul>
                     <li class="flex justify-between border-b py-2">
                         <span> <b>Prev:</b>  </span>
-                        <span class="dark:text-blue-500"> <a href="/viewmaterial/{{$prev_material->learning_cycle}}">    {{ $prev_material->material_title }}  </a>    </span>
+                        <span class="text-blue-500"> <a href="/viewmaterial/{{$prev_material->learning_cycle}}">    {{ $prev_material->material_title }}  </a>    </span>
                     </li>
 
                     <li>
                         <span class="flex justify-between border-b py-2">
                             <span> <b>Current:</b>  </span>
-                            <span class="text-green-500"> <b> <a href="#full_material"> {{ is_null($material) ? 'Review' :  $material->material_title  }}   </a></b>  </span>
+                            <span class="text-green-500"> <a href="#full_material"> {{ is_null($material) ? 'Review' :  $material->material_title  }}   </a>  </span>
                         </span>
                     </li>
 
@@ -71,16 +73,18 @@
 
        
     @else    
-    <div class=" p-6 rounded-2xl dark:bg-gray-900  shadow mt-6">
-        <h2 class="text-xl font-semibold mb-4 dark:text-white ">NEXT LESSON</h2>
-        <div>
-             <h1 id="full_material"  class="text-2xl te dark:bg-gray-900 dark:text-green-500 font-semibold mb-4"> {{$material->material_title}} <hr> </h1>
+    <div class=" p-6 rounded-2xl bg-blue-50   dark:bg-gray-900  shadow mt-6">
+        <h2 class="text-xl font-semibold bg-blue-50 dark:text-white ">NEXT LESSON
+            <br><br>
+        </h2>
+        <div class="bg-blue-50 text-white">
+             <h1 id="full_material"  class="text-2xl dark:bg-gray-900 text-green-600 font-semibold mb-4"> {{$material->material_title}} <hr> </h1>
                 <br>
-                <div id="materialviewbox" class="dark:bg-gray-900 dark:text-gray-400" >
+                <div id="materialviewbox" class="dark:bg-gray-900 bg-blue-50 text-black dark:text-gray-400" >
                     
-                    {{-- {!! $material->material !!} --}}
+                      {!! $material->material !!}
 
-                    <x-materialview/>
+                 {{--  <x-materialview/> --}}
                 </div>
               
         </div>
@@ -106,7 +110,7 @@
 
 
 
-                <h2 class="text-xl text-red-500 font-semibold mb-4">PRACTISE QUESTIONS ( Answer all)</h2>
+                <h2 class="text-xl text-red-400 dark:text-red-300 font-semibold mb-4">PRACTISE QUESTIONS ( Answer all)</h2>
                 <ul class="list-disc ml-6 dark:bg-gray-900 dark:text-gray-400">
                     {{-- <li>Complete the lesson to unlock the next one.</li> --}}
                     <li>Answer all questions correctly.</li>
@@ -177,7 +181,6 @@
             <x-popup 
                 id="welcomePopup"
                 title="Welcome!"
-                message="Take corrections if any...happy learning!"
             />
   </div>
     </div>

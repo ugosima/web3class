@@ -15,8 +15,22 @@ export default {
             fontFamily: {
                 sans: ['Figtree', ...defaultTheme.fontFamily.sans],
             },
-        },
-    },
+            listStyleType:
+            {
+              dash:'"-"',
+            },
+            colors: {
+                tw: {
+                bg: '#0b1531',
+                card: '#111b3a',
+                accent: '#2b6ef6',
+                text: '#e5edff',
+                sub: '#9bb1ff'
+                }},
+            borderRadius: { app: '24px' },
+            boxShadow: { soft: '0 8px 30px rgba(0,0,0,0.25)' }
+                        },
+                    },
 
     plugins: [forms],
 };

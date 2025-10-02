@@ -4,9 +4,11 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('View Material') }}
         </h2>
     </x-slot>
+
+            <link rel="stylesheet" href="{{ asset('css/materialaid.css') }}">
+
 
     <div class="py-12 ">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
@@ -61,8 +63,8 @@
                 </div>
 
 
-                <div class="p-3 dark:bg-blue-500 dark:text-black">
-                    <h1 class="text-2xl font-bold mb-4"> <u> <b> LESSON {{$view_id}} : </b> </u> &nbsp; {{ $material->material_title }}</h1>
+                <div class="p-2 dark:bg-blue-300 dark:text-black">
+                    <h2 class="text-xl"> LESSON {{$view_id}} : &nbsp; <span class="uppercase"> {{ $material->material_title }} </span></h2>
                 </div>   
 
 

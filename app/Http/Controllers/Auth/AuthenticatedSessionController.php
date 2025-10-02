@@ -4,9 +4,12 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Auth\LoginRequest;
+use App\Models\User;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Validation\ValidationException;
 use Illuminate\View\View;
 
 class AuthenticatedSessionController extends Controller
@@ -24,7 +27,31 @@ class AuthenticatedSessionController extends Controller
      */
     public function store(LoginRequest $request): RedirectResponse
     {
-        $request->authenticate();
+        // Validate login fields
+        $request->validate([
+            'email' => ['required', 'string', 'email'],
+            'password' => ['required', 'string'],
+        ]);
+
+        // Try to find the user by email
+        $user = User::where('email', $request->email)->first();
+
+        // If user does not exist → generic message
+        if (! $user) {
+            throw ValidationException::withMessages([
+                'email' => __('auth.failed'), // "credentials do not match."
+            ]);
+        }
+
+        // If email exists but password is wrong → specific message
+        if (! Hash::check($request->password, $user->password)) {
+            throw ValidationException::withMessages([
+                'email' => __('auth.password'), // "The provided password is incorrect."
+            ]);
+        }
+
+        // Credentials correct → log in
+        Auth::login($user, $request->boolean('remember'));
 
         $request->session()->regenerate();
 

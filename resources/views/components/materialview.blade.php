@@ -1,58 +1,433 @@
+<section>
+     <p>
+      The aim of every investment is to make profits, this also includes crypto investments. The first parts of this lessons focused on the "what is" and "how to" in crypto, this particular lesson is meant to expose you to the rationale of crypto investment.
+      <br>
+      <br>
+      
+      One common mistake many crypto newcomers make is to believe that crypto is a get-rich-quick scheme, where you walk in today  with little or nothing, and walk out tomorrow as a billionaire; The harsh truth is that crypto is way more complex and volatile than that, though the opportunities and possibilities are boundless, you will need patience, knowledge, and strategy. 
+      <br>
+      <br>
+      
+      Money is not manufactured in crypto, instead money flows, and your responsibility as an investor is to position yourself such that the money flows to you. There are thousands of crypto tokens and projects with many more even developing as you read, so the task of finding the right project to invest in is the hardest part of this industry even before when to buy, and when to sell.
+      <br>
+      <br>
 
- <section>
+      The best time to invest in any project is the early stages of it, but how do you know if this project is not another baseless hype, or will not stagnate your capital, rendering it unproductive far longer than you planned, this here is why you can only build your knowledge and experience with time, there's no other way.
+      <br>
+      <br>        
+     </p> 
+     
+     <h2>Investment strategy based on timeframe</h2>
+      <p>
+     There are different strategies of investing/trading crypto, here they are grouped with respect to the time plan for returns.
+     </p>
+     <br>
+    <ol class="space-y-2 list-inside ">
+
+    <li><b> 1. Scalping (Very Short-Term: Minutes to Hours) </b>
+
+     Making dozens of quick trades daily to exploit tiny price movements. The goal is to capture small profits repeatedly within very short time frames.
+</li>
 
 
-  <div class="dark:bg-gray-900 dark:text-gray-400 font-sans antialiased">
+     <li><b>2. Day Trading (Short-Term: Within a Day)</b>
+     Buying and selling crypto within the same day to profit from intraday volatility. Positions are closed before the day ends to avoid overnight risks.
+    </li>
 
-    <!-- Hero Section -->
-    <section class="bg-gradient-to-b from-blue-600 to-indigo-800 text-white text-center py-20">
-        <div class="max-w-4xl mx-auto px-4">
-            <h1 class="text-4xl md:text-6xl font-bold mb-4">Your Crypto Wallet</h1>
-            <p class="text-lg md:text-xl mb-6">Buy, store, and grow your crypto assets securely</p>
-            <a href="#" class="bg-white text-blue-700 font-semibold px-6 py-3 rounded-full shadow-lg hover:bg-gray-100 transition">Download Now</a>
-        </div>
-    </section>
 
-    <!-- Features -->
-    <section class="py-16 bg-white dark:bg-gray-900">
-        <div class="max-w-6xl mx-auto px-4 text-center">
-            <h2 class="text-3xl font-bold mb-12">Key Features</h2>
-            <div class="grid md:grid-cols-3 gap-8 text-left">
-                <div>
-                    <h3 class="text-xl font-semibold mb-2">Secure Wallet</h3>
-                    <p>Private keys stored securely on your device only.</p>
-                </div>
-                <div>
-                    <h3 class="text-xl font-semibold mb-2">Multi-Chain Support</h3>
-                    <p>Supports Ethereum, BNB, Bitcoin, and 70+ blockchains.</p>
-                </div>
-                <div>
-                    <h3 class="text-xl font-semibold mb-2">In-App DEX</h3>
-                    <p>Trade tokens without leaving your wallet.</p>
-                </div>
-            </div>
-        </div>
-    </section>
+     
+    <li><b> 3. Swing Trading (Medium-Term: Days to Weeks)</b>
 
-    <!-- Footer -->
-    <footer class="bg-gray-100 dark:bg-gray-800 py-6 text-center text-sm">
-        <p>&copy; {{ date('Y') }} Trust Wallet Clone. All rights reserved.</p>
-    </footer>
-</div>
+     Holding positions for a few days to several weeks to ride swings in market price trends and capture medium-sized gains.</li>
+
+    <li><b>4. Position Trading / Holding (Long-Term: Months to Years)</b>
+
+     Buying strong coins and holding them through market ups and downs with the expectation of major appreciation over time. Commonly called HODLing in crypto.
+</li>
+     
+   <li>
+    <b>5. Staking & Yield Farming (Passive Long-Term: Continuous Income)</b>
+     Locking coins in a network (staking) or providing liquidity (yield farming) to earn rewards, generating passive income while waiting for long-term price growth.
+    </li>
+
+    </ol>
+
+     <br>  
+     <br>
+      <h2>Investment strategy based on trade type</h2>
+          <p>
+            Crypto profits is all about timed entry and exits, there are different methods regardless of time strategy that are used to enter and exit the market in a bid to make profits. These methods includes :
+
+            <ol class="space-y-2 list-inside ">
+
+                                
+                      <li>
+                                  <b>1. Spot Trading</b>
+                                  Buying and selling cryptocurrencies directly at current market prices.
+
+                                    Profits come from price appreciation or short-term fluctuations.
+
+                        </li>
+
+
+                      <li>  <b>2. Margin Trading</b>
+
+                      Trading with borrowed funds to increase position size.
+
+                      Amplifies both profits and losses through leverage.
+                    </li>
+
+                    <li>
+                      <b>          3. Futures trading </b>   
+                      Contracts to buy or sell crypto at a predetermined price in the future.
+
+                      Traders can speculate on both rising (long) and falling (short) markets.
+
+                    </li>
+
+                    <li>
+                      <b> 4. Arbitrage Trading </b>
+                      Exploiting price differences of the same crypto across different exchanges.
+
+                      Involves fast execution and often automated trading.
+
+                    </li>
+                    </ol>
+
+                    <br><br>
+
+         
+
+          </p>
+
+          <div class="quickbox">
+     <h2 class="qbheading"><b class="ideabulb">&#128161; </b> <b class="qbheading"> PRICE PREDICTION </b> </h2>
+    <br>
+     </p>  The future price fluctuations of an asset can be tentatively predicted, and this prediction marks the base for combining time and trade type strategies, e.g An investor predicts that the price of BTC will increase within 24 hours, he decides to do a futures entrance for BTC with the highest leverage available,after 24 hours, he recovers his profits if successful, or losses if the trade goes against him.
+            So the time and trade type strategies are not mutually exclusive, rather is seen to go hand-in-hand.
+          <p>
+   </div>
+          <br><br>
+
+
+
+
+
+          <h2>Investment economics</h2>
+          <p>
+            Crypto assets follows the same laws of supply and demand with respect to price, how much of an asset is available in the open market, who and who are interested in this asset, what is the unbiased use of the asset, is it marketed well enough?, who created the asset?, this questions and many more rightly answers the question of what and what not, and serves as a guide towards predicting the future of any asset.
+
+            <br>
+            <br>
+            You may ask "how do I know what to buy, when to buy, and when to sell?", the straight answer is that nobody knows for sure what will happen next, however anybody can tentatively speculate, and because speculation is just speculation, the statement  "Invest what you can afford to lose. " was popularized because the market can go in any direction, which can mean profits in one direction, and liquidation in the other.
+            <br>
+            <br>
+            Spot holders have a common saying "You don't lose until you sell", aimed at urging holders at loss to not sell because there's the believe that the tokens price will increase and they will be positioned for profits, this is not entirely true considering the time value of the money locked in, and the fact that nobody knows for sure when such asset will have an incremental run in price. Your knowledge and strategy however makes you decide that keeping a dipping token token is the right decision.
+            
+
+           </p>
+
+
+
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+hhhhhjjjjjjjlvogogogigicicrf atsitauayoa yadupt qayodlydyksylRuakgauratizhkatusluxylTkxjlc
+
+<section>
+     <h2 class="text-2xl font-bold">Investment and market psychology </h2>
+     <br>
+     <p class="pl-3">
+      The aim of every investment is to make profits, this also includes crypto investments. The first parts of this lessons focused on the "what is" and "how to" in crypto, this particular lesson is meant to expose you to the rationale of crypto investment. One common mistake many crypto newcomers make is to believe that crypto is a get-rich-quick scheme, where you walk in today  with little or nothing, and walk out tomorrow as a billionaire; The harsh truth is that crypto is way more complex and volatile than that, though the opportunities and possibilities are boundless, you will need patience, knowledge, and strategy. Money is not manufactured in crypto, instead money flows, and your responsibility as an investor is to position yourself such that the money flows to you. There are thousands of crypto tokens and projects with many more even developing as you read, so the task of finding the right project to invest in is the hardest part of this industry even before when to buy, and when to sell.
+      <br>
+      <br>
+      The best time to invest in any project is the early stages of it, but how do you know if this project is not another baseless hype, or will not stagnate your capital, rendering it unproductive far longer than you planned, this here is why you can only build your knowledge and experience with time, there's no other way.
+      <br>
+      <br>
+        
+     </p> 
+     
+     <h2 class="text-2xl font-bold">Investment strategy based on timeframe</h2>
+      <p class="pl-3">
+     There are different strategies of investing/trading crypto, here they are grouped with respect to the time plan for returns.
+     </p>
+    <ol>
+
+    <li><b> 1. Scalping (Very Short-Term: Minutes to Hours) </b>
+
+     Making dozens of quick trades daily to exploit tiny price movements. The goal is to capture small profits repeatedly within very short time frames.
+</li>
+
+
+     <li><b>2. Day Trading (Short-Term: Within a Day)</b>
+     Buying and selling crypto within the same day to profit from intraday volatility. Positions are closed before the day ends to avoid overnight risks.
+    </li>
+
+
+     
+    <li><b> 3. Swing Trading (Medium-Term: Days to Weeks)</b>
+
+     Holding positions for a few days to several weeks to ride swings in market price trends and capture medium-sized gains.</li>
+
+    <li><b>4. Position Trading / Holding (Long-Term: Months to Years)</b>
+
+     Buying strong coins and holding them through market ups and downs with the expectation of major appreciation over time. Commonly called HODLing in crypto.
+</li>
+     
+   <li>
+    <b>5. Staking & Yield Farming (Passive Long-Term: Continuous Income)</b>
+     Locking coins in a network (staking) or providing liquidity (yield farming) to earn rewards, generating passive income while waiting for long-term price growth.
+    </li>
+
+    </ol>
+
+     <br>  
+     <br>
+      <h2 class="text-2xl font-bold">Investment strategy based on trade type</h2>
+          <p class="pl-3">
+            Crypto profits is all about timed entry and exits, there are different methods regardless of time strategy that are used to enter and exit the market in a bid to make profits. These methods includes :
+
+            <ol>
+
+                                
+                      <li>
+                                  <b>1. Spot Trading</b>
+                                  Buying and selling cryptocurrencies directly at current market prices.
+
+                                    Profits come from price appreciation or short-term fluctuations.
+
+                        </li>
+
+
+                      <li>  <b>2. Margin Trading</b>
+
+                      Trading with borrowed funds to increase position size.
+
+                      Amplifies both profits and losses through leverage.
+                    </li>
+
+                    <li>
+                      <b>          3. Futures trading </b>   
+                      Contracts to buy or sell crypto at a predetermined price in the future.
+
+                      Traders can speculate on both rising (long) and falling (short) markets.
+
+                    </li>
+
+                    <li>
+                      <b> 4. Arbitrage Trading </b>
+                      Exploiting price differences of the same crypto across different exchanges.
+
+                      Involves fast execution and often automated trading.
+
+                    </li>
+                    </ol>
+
+                    <br><br>
+
+         
+
+          </p>
+
+          <div class="quickbox">
+     <h2 class="qbheading"><b class="ideabulb">&#128161; </b> <b class="qbheading"> NOTE </b> </h2>
+    <br>
+     <p>  The future price fluctuations of an asset can be tentatively predicted, and this prediction marks the base for combining time and trade type strategies, e.g An investor predicts that the price of BTC will increase within 24 hours, he decides to do a futures entrance for BTC with the highest leverage available,after 24 hours, he recovers his profits if successful, or losses if the trade goes against him.
+            So the time and trade type strategies are not mutually exclusive, rather is seen to go hand-in-hand.
+     </p>
+   </div>
+          <br><br>
+
+
+
+
+
+          <h2 class="text-2xl font-bold">Investment economics</h2>
+          <p class="pl-3">
+            Crypto assets follows the same laws of supply and demand with respect to price, how much of an asset is available in the open market, who and who are interested in this asset, what is the unbiased use of the asset, is it marketed well enough?, who created the asset?, this questions and many more rightly answers the question of what and what not, and serves as a guide towards predicting the future of any asset.
+
+            <br>
+            <br>
+            You may ask "how do I know what to buy, when to buy, and when to sell?", the straight answer is that nobody knows for sure what will happen next, however anybody can tentatively speculate, and because speculation is just speculation, the statement  "Invest what you can afford to lose. " was popularized because the market can go in any direction, which can mean profits in one direction, and liquidation in the other; Spot holders have a common saying "You don't lose until you sell", aimed at urging holders at loss to not sell because there's the believe that the tokens price will increase and they will be positioned for profits, this is not entirely true considering the time value of the money locked in and the fact that nobody knows for sure when such asset will have an incremental run in price. Your knowledge and strategy however makes you decide that keeping a dipping token token is the right decision.
+
+           </p>
+
+
+
+</section>
+
+
+<br>
+<br>
+<br>
+
+<section>
+   <h2 class="text-2xl font-bold"> Funding your wallet</h2>
+        <p class="pl-3">
+            Funding your wallet simply means adding real crypto to your wallet. Crypto assets are gotten from exchanges using fiat(ordinary money), or they can be gotten from somebody that already has them and decides to send some to you.
+            <br>
+
+            <br>
+            In this lesson we will discuss briefly this basic process.
+
+        </p>
+        <p class="pl-3">  
+           Receiving crypto from a person is a basic process, whether on a centralized exchange or a wallet, all you have to do is copy your wallet address on the right network and send it to them.
+          <br> If you both are on the same centralized crypto exchange, you can send them your user id or even your username as allowed by the exchange. 
+          </p>
+          <br>
+
+   <h2 class="text-2xl font-bold">Here’s a guide on copying and sharing your wallet address </h2>
+   <br>
+    <ol class="list-disc list-inside">
+      <li>Open your wallet and tap "Receive" to show your address or QR code.</li>
+      <li> Note the network of the token to be received, crypto sent to the wrong network can not be retrieved.</li>
+      <li>digitally copy the address on that network, <b>DO NOT TYPE WALLET ADDRESSES</b> or write them with a pen because you will most likely make mistakes.</li>     
+     <li>Ask the sender to include the correct memo/tag if required.</li>
+      <li>After the sender sends, monitor the transaction with the provided transaction hash on the blockchain explorer.</li>
+  </ol>
+  <br>
+  <br>
+
+  <div>
+    <h2 class="text-2xl font-bold">
+      Buying from an exchange
+    </h2>
+    <br>
+            
+        <h2 class="font-semibold text-xl">    1. Bank transfer (via exchange or on-ramp) </h2>
+        Bank transfers are one of the most common ways to convert local currency into cryptocurrency. Many centralized exchanges  and fiat-on ramps accept bank deposits, ACH (US), SEPA (EU), or local bank transfers.
+      <br>
+       <b> Steps</b>
+       <br>
+        <ol class="list-disc list-inside">
+          <li>  Create an account on a trusted exchange or payment provider and complete KYC if required.</li>
+          <li> Locate the deposit page for your selected currency.</li>
+          <li> Follow the deposit instructions, noting details like account number, reference code, and any required tags.</li>
+          <li>Make the deposits as required.</li>
+          <li> After your payment is verified,your asset will be deposited into your exchange wallet, withdraw to your external wallet if you have to.</li>  
+      </ol>
+<br><br>
+
+
+      <h2 class="font-semibold text-xl"> <b>2. With credit/debit cards</b> </h2>
+
+      <p class="pl-3">
+         Cards are fast and user-friendly but often carry higher fees and lower limits compared to bank transfers.
+        To buy from an exchange using a debit or credit card, some exchanges requires a verification process that involve submitting your personal documents.
+        <br>
+          After this process is done, you can purchase any cryptocurrency of your choice using fiat or by first buying USDT, then using the purchased USDT to buy your coin of choice.
+        <br>
+          
+          The steps to this are simple and self explanatory on any exchange.
+          
+      </p> 
+     <b> Steps</b> 
+      <ol class="list-disc list-inside">
+      <li> Choose a provider or exchange supporting card purchases.</li>
+      <li>locate the deposit section and choose debit/credit cards.</li>
+      <li> Enter card details and the amount of fiat to convert.</li>
+      <li> Confirm the purchase; crypto usually lands instantly in the exchange account or in-app wallet.</li>
+      </ol>
+
+<br>
+<br>
+   <h2 class="text-xl font-bold">3. Buying USDT using P2P</h2>
+    <br>
+    if the exchange you are using does not support direct fiat conversions due to government restrictions and regulatory laws,or high transaction fees, you can buy USDT using Peer-to-Peer(P2P) transactions, P2P platforms (centralized Exchange) match buyers and sellers directly, this is very particularly useful where regulated on-ramps are limited; You can pay another person via bank transfer, mobile money, or cash and receive crypto through escrow on the P2P platform. This works by you placing an order to a merchant, making payments directly to the merchants account, and then you receive your USDT after the merchant verifies the payment; Here the exchange serves as an escrow between you and the merchant , thereby they hold the merchants crypto, and releases it to you after you have paid and the merchant have verified your payment; If any issues arises during the process, the exchange stands to resolve and pass punishments to defaulters.
+    <br>
+
+    <b>Steps</b>
+    <ol class="list-disc list-inside pl-3">
+      <li>Create and verify your P2P account.</li>
+      <li>Find a reputable seller with good completion rates and sensible pricing.</li>
+      <li>Start a trade, follow the platform’s escrow instructions, and complete the off-platform payment.</li>
+      <li>Confirm release of crypto once payment is verified.</li>
+    </ol>
+    <br>
+    <br>
+
+   <div class="quickbox">
+     <h2 class="qbheading"><b class="ideabulb">&#128161; </b> <b class="qbheading"> NOTE </b> </h2>
+    <br>
+    <p>
+       <b>1.</b>
+    <span>USDT is the most used and most popular quote currency used on exchanges, this is because it is a stablecoin with equal value to the USD fiat. It can easily be converted to any other asset of your choice.</span>
+    <br>
+    <br>
+    
+    <span>
+    <b>2.</b>  Do not perform P2P negotiations or transactions outside the exchange, this is a technique scammers use to defraud unsuspecting users, because the exchange will not have any evidence of your transactions, they will escape punishment and your funds will be gone.  </span>
+    <br>
+    <br>
+    <span>
+          <b>3</b>
+          <br>
+          The different funding methods have different fees and transaction charges, always monitor the fees and charges to prevent inefficient utility of your funds.
+    </span>
+    </p>
+   </div>
+   <br>
+
+<div class='overflow-x-auto'>
+  <h2 class="text-xl font-bold">A quick comparison between the exchange methods</h2>
+      <table class='min-w-full border border-gray-300 text-sm'>
+                <thead>
+                              <tr>
+                                                <th class='border px-3 py-2 text-left'>Method</th>                <th class='border px-3 py-2 text-left'>Pros</th>                <th class='border px-3 py-2 text-left'>Cons</th>            
+                                              </tr>        
+                                            </thead>       
+                                              
+                                              
+                                              <tbody>
+                                                              <tr>
+                                                                                <td class='border px-3 py-2'><b>Bank Transfer</b></td>                <td class='border px-3 py-2'>Low fees, direct from bank, usually with higher limits.</td>                <td class='border px-3 py-2'>Slower processing, and bank restrictions are possible.</td>           
+                                                               </tr>           
+                                                                                
+ <tr>                
+       <td class='border px-3 py-2'><b>Credit Card</b></td>
+                                                                                                                          <td class='border px-3 py-2'>Fast, convenient, and instant buy</td>                
+                                                                                                                  <td class='border px-3 py-2'>High fees, risk of debt, and some banks block crypto transactions due to regulations.</td>            
+                                                                                                                
+</tr>            
+                                                                                                                  <tr>
+                                                                                                                            <td class='border px-3 py-2'> <b> P2P </b></td>                
+                                                                                                                            <td class='border px-3 py-2'>More payment options, and most times has the cheaper rates.</td>
+                                                                                                                          <td class='border px-3 py-2'>Risk of scams, requires caution, and slower dispute resolution if any.</td>
+                                                                                                                    </tr>        
+                                                                                                                                  </tbody>    
+                                                                                                                                </table>
+                                                                                                                              
+          </div>
+  </div>
 
  </section>
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
+ <br><br>
  
  <section>
     
@@ -65,6 +440,9 @@
 
         </p>
 
+
+
+        
     </section>
 <br><br>
 

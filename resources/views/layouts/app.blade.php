@@ -13,16 +13,18 @@
 
 
         <!-- Scripts -->
+            <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+            <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
-    <body class="font-sans antialiased">
+   <body class="font-[Inter] text-gray-800 leading-relaxed ">
         <div class="min-h-screen bg-gray-100 dark:bg-gray-800">
             @include('layouts.navigation')
 
             <!-- Page Heading -->
             @isset($header)
-                <header class="bg-white dark:bg-gray-900 shadow">
-                    <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
+                <header class="dark:bg-gray-900 shadow">
+                    <div class="max-w-7xl mx-auto py-3 px-4 sm:px-6 lg:px-8">
                         {{ $header }}
                     </div>
                 </header>
@@ -32,6 +34,9 @@
             <main>
                 {{ $slot }}
             </main>
+
+
+            @include('components.footer')
         </div>
     </body>
 </html>

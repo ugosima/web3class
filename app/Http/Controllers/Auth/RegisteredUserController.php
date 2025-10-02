@@ -39,6 +39,8 @@ class RegisteredUserController extends Controller
             'name' => $request->name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
+            'authtype' => 1,
+            ///type 1 is email and password , type 2 isGoogle logind
         ]);
 
         event(new Registered($user));

@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DashboardController;
 
 
+
 Route::get('/', function () {
     return view('welcome');
 });
@@ -27,6 +28,22 @@ Route::middleware('auth')->group(function () {
 
 
 Route::get('/dashboard', [DashboardController::class, 'index'])->middleware('auth')->name('dashboard');
+
+Route::get('/company/{slug}', function ($slug) 
+
+
+{  return view('company', ['slug' => $slug]);})->name('company');
+
+Route::get('/welcome', function () {
+    return view('welcome');
+})->name('welcome');
+
+
+
+// google login routes
+
+Route::get('auth/google', [SocialAuthController::class, 'redirectToGoogle'])->name('google.redirect');
+Route::get('auth/google/callback', [SocialAuthController::class, 'handleGoogleCallback'])->name('google.callback');
 
 
 
