@@ -17,11 +17,22 @@
                      {{-- Assuming the learning cycle IDs are sequential and start from 1 --}}
                      {{-- Adjust the logic if your IDs are not sequential or have gaps --}}
                     
-                     @php
-                    
-                     $prev_material=  $view_id - 1 ;
-                     $next_material= $view_id + 1;
-                    @endphp
+                     @php                   
+                        $prev_material=  $view_id - 1 ;
+                        $next_material= $view_id + 1;
+                     @endphp
+
+                    @if (session('error'))
+
+                        <x-popup 
+                            id="statusPopup" 
+                            title="Notice" 
+                            :message="session('error')" 
+			            />
+                    @endif
+
+
+
                 <div class="dark:bg-gray-900 dark:text-gray-400 p-5">
                      <div class="flex justify-between mt-4">
                         {{-- Previous and Next buttons --}}

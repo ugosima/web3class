@@ -7,7 +7,7 @@
     </x-slot>
 
         <link rel="stylesheet" href="{{ asset('css/materialaid.css') }}">
-        {{-- <script src="https://cdn.tailwindcss.com"></script> --}}
+        <script src="https://cdn.tailwindcss.com"></script>
 
 
 <div class="p-6 max-w-6xl mx-auto">
@@ -62,7 +62,7 @@
 
     <!-- Available Courses -->
     @if ($user->lesson_progress == 0)
-        <div class="p-4 rounded-2xl shadow mt-6 dark:bg-gray-900 dark:text-white">
+        <div class="p-4 rounded-2xl  bg-blue-50 shadow mt-6 dark:bg-gray-900 dark:text-white">
 
                 <h2 class="text-xl font-semibold mb-4">Welcome to web3 for crypto class</h2>
 
@@ -74,17 +74,17 @@
        
     @else    
     <div class=" p-6 rounded-2xl bg-blue-50   dark:bg-gray-900  shadow mt-6">
-        <h2 class="text-xl font-semibold bg-blue-50 dark:text-white ">NEXT LESSON
+        <h2 class="text-xl font-semibold bg-blue-50 dark:text-gray-300 dark:bg-gray-900 ">NEXT LESSON
             <br><br>
         </h2>
-        <div class="bg-blue-50 text-white">
+        <div class="bg-blue-50 text-white dark:bg-gray-900 dark:text-gray-400">
              <h1 id="full_material"  class="text-2xl dark:bg-gray-900 text-green-600 font-semibold mb-4"> {{$material->material_title}} <hr> </h1>
                 <br>
                 <div id="materialviewbox" class="dark:bg-gray-900 bg-blue-50 text-black dark:text-gray-400" >
                     
                       {!! $material->material !!}
 
-                 {{--  <x-materialview/> --}}
+                  {{-- <x-materialview/> --}}
                 </div>
               
         </div>
@@ -110,7 +110,7 @@
 
 
 
-                <h2 class="text-xl text-red-400 dark:text-red-300 font-semibold mb-4">PRACTISE QUESTIONS ( Answer all)</h2>
+                <h2 class="text-xl text-red-500 dark:text-red-300 font-semibold mb-4">PRACTISE QUESTIONS ( Answer all)</h2>
                 <ul class="list-disc ml-6 dark:bg-gray-900 dark:text-gray-400">
                     {{-- <li>Complete the lesson to unlock the next one.</li> --}}
                     <li>Answer all questions correctly.</li>

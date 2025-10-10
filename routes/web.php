@@ -22,17 +22,13 @@ Route::middleware('auth')->group(function () {
     Route::post('/question', [PractiseController::class,'index']);
     Route::get('/startclass', [PractiseController::class,'startClass'])->name('startclass');
     Route::get('/viewmaterial/{id}', [PractiseController::class,'viewMaterialById'])->name('viewmaterial');
+    Route::get('/dashboard', [DashboardController::class,'index'])->name('dashboard');
+
 
 });
 
 
-
-Route::get('/dashboard', [DashboardController::class, 'index'])->middleware('auth')->name('dashboard');
-
-Route::get('/company/{slug}', function ($slug) 
-
-
-{  return view('company', ['slug' => $slug]);})->name('company');
+Route::get('/company/{slug}', function ($slug) {  return view('company', ['slug' => $slug]); })->name('company');
 
 Route::get('/welcome', function () {
     return view('welcome');

@@ -116,8 +116,8 @@ class PractiseController extends Controller
     {
         //
         $user =Auth::user();
-        $view_id = (int)$id;
-        if ($view_id <= $user->lesson_progress)
+        $view_id = (abs((int)$id) + (int)$id) / 2; // Convert to integer and take absolute value
+        if ( $view_id <= $user->lesson_progress)
         { 
             $material = DB::table('questions_and_answers')->where('learning_cycle', $id)->whereNotNull('material')->select('material', 'material_title')->first();
             $material_titles = DB::table('questions_and_answers') ->whereNotNull('material_title')->pluck('material_title', 'learning_cycle');
@@ -130,7 +130,9 @@ class PractiseController extends Controller
         
          else
          { 
-             return view('viewmaterial', compact('material', 'view_id', 'user', 'material_titles'));
+            //  return view('viewmaterial', compact('material', 'view_id', 'user', 'material_titles'));
+             return back()->with('error', 'Not available!');
+
 
          }
     }

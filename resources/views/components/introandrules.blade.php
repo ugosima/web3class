@@ -1,4 +1,4 @@
-<div class=" p-6 rounded-lg shadow-md dark:bg-gray-800 dark:text-gray-400">
+<div class=" p-6 rounded-lg bg-blue-50 shadow-md dark:bg-gray-800 dark:text-gray-400">
   <br><br>
     <p> <b>Dear Web3 Enthusiast,</b></p>
 <br>
@@ -26,7 +26,7 @@
     <li><b>&mdash;</b> &nbsp; Analysis </li>
      <li><b>&mdash;</b> &nbsp; Hands-on practice</li>
   </ul>
-  <p>No prior Web3 experience <span class="font-semibold text-red-500">? . . .</span> &nbsp; No worries, we are starting from scratch and building up fast, together!</p>
+  <p>No prior Web3 experience <span class="font-semibold text-red-500">? . . .</span> &nbsp; No worries, we are starting from scratch.</p>
   <br><br>
 
   <hr>
@@ -52,7 +52,7 @@
   </p>
 </div>
 
-<div class="flex justify-center items-center h-64 bg-white-100">
+<div class="flex justify-center items-center h-64 bg-blue-50 dark:bg-gray-800 dark:text-gray-400 mt-6 rounded-lg shadow-md">
      
   <a href="{{ route('startclass') }}" class="flex items-center font-bold mt-2 bg-green-600 w-72 h-16 text-white justify-center px-3 py-1 rounded hover:bg-blue-600">
             
