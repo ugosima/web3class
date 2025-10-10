@@ -10,17 +10,20 @@ class DashboardController extends Controller
     public function index()
     {
         $user = Auth::user();
-        $recentActivities = [
-            ['description' => 'Completed “Intro to HTML”', 'points' => 20],
-            ['description' => 'Referred a friend', 'points' => 50],
-        ];
-        $availableCourses = [
-            ['title' => 'CSS Basics', 'points' => 30],
-            ['title' => 'JavaScript Challenge', 'points' => 40],
-        ];
+        // $recentActivities = [
+        //     ['description' => 'Completed “Intro to HTML”', 'points' => 20],
+        //     ['description' => 'Referred a friend', 'points' => 50],
+        // ];
+        // $availableCourses = [
+        //     ['title' => 'CSS Basics', 'points' => 30],
+        //     ['title' => 'JavaScript Challenge', 'points' => 40],
+        // ];
 
         $current_quest = $user->lesson_progress;
         $prev_quest = $current_quest - 1;
+        if ($prev_quest < 1) {
+            $prev_quest = 1; // Ensure it doesn't go below 1
+        }
         $next_quest = $current_quest + 1;
         // Fetching the questions and answers based on the user's learning progress
         $questions = DB::table('questions_and_answers')->where('learning_cycle',$current_quest)->inRandomOrder()->get();
@@ -34,6 +37,6 @@ class DashboardController extends Controller
         if (!$next_material) {
             $next_material = (object) ['material_title' => 'No next material available'];
         }
-        return view('dashboard', compact('user', 'recentActivities', 'availableCourses', 'questions', 'material','prev_material', 'next_material', 'material_titles'));
+        return view('dashboard', compact('user','questions', 'material','prev_material', 'next_material', 'material_titles'));
     }
 }

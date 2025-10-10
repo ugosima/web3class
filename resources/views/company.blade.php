@@ -7,7 +7,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
     @vite('resources/css/app.css')
 </head>
-<body class="font-[Inter] text-gray-800 leading-relaxed ">
+<body class="font-[Inter] text-gray-800 leading-relaxed flex flex-col min-h-screen">
 
 
     <!-- Page Heading -->
@@ -19,7 +19,20 @@
         </h2>
     </x-slot>
 
-<div class="max-w-4xl mx-auto px-6 py-12">
+
+
+<div class="max-w-4xl mx-auto px-6 py-12 flex-1">
+        
+
+@auth
+   <div class="max-w-7xl mx-auto ">
+            <h2 class="font-semibold text-xl">
+                <a href="{{ route('dashboard') }}"> <span class="text-red-500 font-bold ">&#8592;</span> DASHBOARD </a>
+            </h2>
+            <br>
+            <br>
+        </div>
+@endauth
 
     {{-- About Us --}}
     @if($slug === 'about')
@@ -110,6 +123,10 @@
             <li><strong>Roadmap:</strong> expanding into mobile apps and integrating on-chain learning modules</li>
         </ul>
         <p class="text-gray-700 mt-4">Developers interested in contributing can reach us at <strong>dev@tokendemy.com</strong>.</p>
+    @endif
+
+    @if($slug === 'engagement_rules')
+        <x-introandrules />
     @endif
 
     {{-- Glossary --}}

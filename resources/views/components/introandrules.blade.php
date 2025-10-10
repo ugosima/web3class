@@ -52,11 +52,11 @@
   </p>
 </div>
 
-<div class="flex justify-center items-center h-64 bg-blue-50 dark:bg-gray-800 dark:text-gray-400 mt-6 rounded-lg shadow-md">
+<div class="flex justify-center items-center h-64 bg-blue-50 dark:bg-gray-800 dark:text-gray-400 rounded-lg shadow-md">
      
   <a href="{{ route('startclass') }}" class="flex items-center font-bold mt-2 bg-green-600 w-72 h-16 text-white justify-center px-3 py-1 rounded hover:bg-blue-600">
             
-        START
+        CONTINUE
 
      </a>
 </div>

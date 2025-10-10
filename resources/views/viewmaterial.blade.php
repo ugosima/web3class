@@ -10,15 +10,25 @@
             <link rel="stylesheet" href="{{ asset('css/materialaid.css') }}">
 
 
-    <div class="py-12 ">
+        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 pt-5">
+            <h2>
+                <a href="{{ route('dashboard') }}"> <span class="text-red-500 font-bold ">&#8592;</span> DASHBOARD </a>
+            </h2>
+        </div>
+       
+
+    <div class="py-12 pt-5">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="overflow-hidden shadow-sm sm:rounded-lg">
-                      @if($view_id > 0 )
-                     {{-- Assuming the learning cycle IDs are sequential and start from 1 --}}
-                     {{-- Adjust the logic if your IDs are not sequential or have gaps --}}
-                    
+                @if($view_id > 0 )
+                {{-- Assuming the learning cycle IDs are sequential and start from 1 --}}
+                {{-- Adjust the logic if your IDs are not sequential or have gaps --}}
+            
                      @php                   
                         $prev_material=  $view_id - 1 ;
+                        if ($prev_material < 1) {
+                            $prev_material = 1; // Ensure it doesn't go below 1
+                        }
                         $next_material= $view_id + 1;
                      @endphp
 

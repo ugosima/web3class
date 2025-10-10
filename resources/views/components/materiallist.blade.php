@@ -10,6 +10,7 @@
                                 <li class=" dark:bg-gray-900 dark:text-gray-400 marker:text-gray-200">  &#128274;   {{ $material_title }} </li>
                             @endif
                         @endforeach
+                        <li class="text-white border-2 border-blue-400 pl-2 rounded-lg text-center"><a href="{{ route('company', 'engagement_rules') }}">Rules of engagement</a></li>
                     </ol>
                     <button onclick="document.getElementById('material_list').classList.add('hidden')"  class="mt-4 px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700">Close</button>
                 </div>

@@ -131,7 +131,7 @@ class PractiseController extends Controller
          else
          { 
             //  return view('viewmaterial', compact('material', 'view_id', 'user', 'material_titles'));
-             return back()->with('error', 'Not available!');
+             return back()->with('error', 'Not yet available!');
 
 
          }

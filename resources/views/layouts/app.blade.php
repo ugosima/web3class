@@ -17,8 +17,8 @@
             <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
-   <body class="font-[Inter] text-gray-800 leading-relaxed ">
-        <div class="min-h-screen bg-gray-100 dark:bg-gray-800">
+   <body class="font-[Inter] text-gray-800 leading-relaxed  flex flex-col min-h-screen">
+        <div class="flex flex-col min-h-screen bg-gray-100 dark:bg-gray-800">
             @include('layouts.navigation')
 
             <!-- Page Heading -->
@@ -31,7 +31,7 @@
             @endisset
 
             <!-- Page Content -->
-            <main>
+            <main class="flex-1">
                 {{ $slot }}
             </main>
 
