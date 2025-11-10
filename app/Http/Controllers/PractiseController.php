@@ -22,7 +22,19 @@ class PractiseController extends Controller
         // retrieving answers of the lesson level
 
         //retrieving the details of the submitted work.
+         // build validation rules
+       $question_ids = $questions->pluck('id');
+
+
+        $rules = [];
+        foreach ($question_ids as $id) {
+            $rules['question_' . $id] = 'required|string';
+        }
+
+        // validate input
+         $request->validate($rules);
         $formdata = $request->all();
+
         // foreach ($variable as $key => $value) {
             
         // }
@@ -56,6 +68,7 @@ class PractiseController extends Controller
             {
                     if ($incorrect_answer_scores > 0) {
                                 Auth::user()->increment('ads_to_play', $incorrect_answer_scores);
+                                Auth::user()->decrement('points', 100); // Deduct points for incorrect answers
                     }
                     else {
                         // All correct answer logic

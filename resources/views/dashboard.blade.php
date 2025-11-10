@@ -21,7 +21,11 @@
             <br><br>
             <p>Email: {{ $user->email }}</p>
             <br><br>
-            <p class="mt-2 font-bold">Total Points: <span class="text-green-600">{{ $user->points }}</span></p>
+            @php
+                $tpv = ($user->lesson_progress/$highest_cycle) * ($user->points);
+            @endphp
+            <p class="mt-2 font-bold">Points: <span class="text-yellow-600">{{ $user->points }}</span> &nbsp; &nbsp;   TPV: <span class="text-green-600"> {{ round($tpv, 2)}}
+   </span> </p>
         </div>
 
         <!-- Recent Activities -->
@@ -252,14 +256,14 @@
 
                             });
                     if (data.score==6) {
-                         showPopup('welcomePopup', `You answered ${data.score} out of 6 questions correctly and earned ${data.score * 5} points!`);
+                         showPopup('welcomePopup', `You answered ${data.score} out of 6 questions correctly!`);
                          btn.innerHTML = 'Continue to next lesson';
                          btn.onclick = function () { location.reload();};
 
                     }
                     else
                     {
-                        showPopup('welcomePopup', `You answered ${data.score} out of 6 questions correctly and earned ${data.score * 5} points! <br> <br> Watch ${6 - data.score} ads to continue!`);
+                        showPopup('welcomePopup', `You answered ${data.score} out of 6 questions correctly! <br> <br> Watch ${6 - data.score} ads to continue!`);
                         btn.innerHTML = 'Watch Ads';
                     }
 

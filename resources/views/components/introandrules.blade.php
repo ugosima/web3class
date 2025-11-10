@@ -34,11 +34,16 @@
 <br>
   <h3><b> RULES OF ENGAGEMENT</b></h3>
   <br>
-  <ol class="space-y-4">
+  <ol class="space-y-4 list-decimal list-inside indent-4">
     <li> <b class=" text-red-600">* *</b> You are expected to study the lesson materials and understand it thoroughly before attempting the practise questions.</li>
-    <li> Each correct answer equals 10 points. </li>
     <li> Each wrong answer equals one marketting ad.</li>
-    <li> You will not be able to move to the next lesson till you have watched all ads, they are quite interesting and could catch your interest.</li>
+    <li> You will not be able to move to the next lesson till you have watched all ads, quite interesting and could catch your interest.</li>
+    <li>10000 points is initialised to you and every other user.</li>
+    <li>Every failed session results to a deduction of 100 points, regardless of number of failed questions. </li>
+    <li>Total points value (<b>TPV</b>) is calculated as (<b>TPV</b>) = (progress/total number of sessions) * Points.</li>
+    <li>The more sessions you complete, the more your points value</li>
+    <li>Read and understand before attempting the questions, this positions you to answer them correctly, thereby maintaining your points.</li>
+    <li>The more your <b>TPV</b>, the more future rewards you will get.</li>
   </ol>
   <br><br>
 

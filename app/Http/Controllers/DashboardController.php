@@ -26,6 +26,7 @@ class DashboardController extends Controller
         }
         $next_quest = $current_quest + 1;
         // Fetching the questions and answers based on the user's learning progress
+        $highest_cycle = DB::table('questions_and_answers')->max('learning_cycle');
         $questions = DB::table('questions_and_answers')->where('learning_cycle',$current_quest)->inRandomOrder()->get();
         $material = DB::table('questions_and_answers')->where('learning_cycle',$current_quest)->select('material','material_title','lesson_video')->first();
         $material_titles = DB::table('questions_and_answers') ->whereNotNull('material_title')->pluck('material_title', 'learning_cycle');
@@ -37,6 +38,6 @@ class DashboardController extends Controller
         if (!$next_material) {
             $next_material = (object) ['material_title' => 'No next material available'];
         }
-        return view('dashboard', compact('user','questions', 'material','prev_material', 'next_material', 'material_titles'));
+        return view('dashboard', compact('user','questions','highest_cycle','material','prev_material', 'next_material', 'material_titles'));
     }
 }
