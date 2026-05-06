@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Redirect;
+use App\Services\Lessonmap;
 
 
 
@@ -128,17 +129,20 @@ class PractiseController extends Controller
     public function viewMaterialById(string $id)
     {
         //
+        $lessonMap = new Lessonmap();
+        $lessondir = $lessonMap->lessondir($id);
+
         $user =Auth::user();
         $view_id = (abs((int)$id) + (int)$id) / 2; // Convert to integer and take absolute value
         if ( $view_id <= $user->lesson_progress)
         { 
-            $material = DB::table('questions_and_answers')->where('learning_cycle', $id)->whereNotNull('material')->select('material', 'material_title')->first();
-            $material_titles = DB::table('questions_and_answers') ->whereNotNull('material_title')->pluck('material_title', 'learning_cycle');
+            $material = DB::table('questions_and_answers')->where('learning_cycle', $id)->select( 'material_title')->first();
+            $material_titles = DB::table('questions_and_answers') ->whereNotNull('material_title')->pluck('material_title', 'learning_cycle'); // Retrieve material titles with learning_cycle as key, this is used to render dynamic content from another component , and so must not be retrieved together with material.
 
             if (!$material) {
                 return response()->json(['message' => 'Material not found'], 404);
             }
-            return view('viewmaterial', compact('material', 'view_id', 'user', 'material_titles'));
+            return view('viewmaterial', compact( 'material', 'view_id', 'user', 'material_titles', 'lessondir'));
          }
         
          else
@@ -172,5 +176,41 @@ class PractiseController extends Controller
     public function destroy(string $id)
     {
         //
+    }
+
+    public function waitlist(Request $request)
+    {
+        // Validate the email
+        $validated = $request->validate([
+            'waitlist_email' => 'required|email'
+        ]);
+
+        try {
+            // Insert the email into the waitlist_emails table
+            $exists = DB::table('waitlist_emails')->where('emails', $validated['waitlist_email'])->exists();
+
+            if (!$exists) {
+                DB::table('waitlist_emails')->insert([
+                    'emails' => $validated['waitlist_email'],
+                    'created_at' => now() ]);
+
+                    return response()->json([
+                'success' => true,
+                'message' => 'You have been added to the waitlist!'
+            ]);
+            } else {
+                return response()->json([
+                    'success' => false,
+                    'message' => 'This email is already on the waitlist.'
+                ], 400);
+            }
+
+            
+        } catch (\Exception $e) {
+            return response()->json([
+                'success' => false,
+                'message' => 'An error occurred. Please try again.'
+            ], 500);
+        }
     }
 }

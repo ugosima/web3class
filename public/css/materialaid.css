@@ -82,7 +82,7 @@
 @media (prefers-color-scheme: dark) {
   h2 {
     /* background-color: gainsboro; */
-    color:#C5CAD0; 
+    /* color:#C5CAD0;  */
     opacity: 0.9;
 
   }

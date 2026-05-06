@@ -1,287 +1,358 @@
 <x-app-layout>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
+    
+    <x-slot name="title">DASHBOARD</x-slot>
+
+    <link rel="stylesheet" href="{{ asset('css/materialaid.css') }}">
+
+    <div class="p-6 max-w-7xl mx-auto">
+         <h2 class="font-bold text-2xl text-white leading-tight">
             {{ __('DASHBOARD') }}
         </h2>
-    </x-slot>
-
-        <link rel="stylesheet" href="{{ asset('css/materialaid.css') }}">
-        <script src="https://cdn.tailwindcss.com"></script>
-
-
-<div class="p-6 max-w-6xl mx-auto">
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 dark:bg-gray-900 dark:text-gray-400">
-        <!-- Profile Card -->
-        <div class=" p-4 rounded-2xl shadow col-span-1 bg-blue-50 dark:bg-gray-900 dark:text-gray-400">
-            @php
-                $name = explode(" ", $user->name);
-            @endphp
-            <h2 class="text-xl font-semibold mb-2 capitalize">Welcome, {{ $name[1] ?? $name[0] ?? '' }}</h2>
-            <br><br>
-            <p>Email: {{ $user->email }}</p>
-            <br><br>
-            @php
-                $tpv = ($user->lesson_progress/$highest_cycle) * ($user->points);
-            @endphp
-            <p class="mt-2 font-bold">Points: <span class="text-yellow-600">{{ $user->points }}</span> &nbsp; &nbsp;   TPV: <span class="text-green-600"> {{ round($tpv, 2)}}
-   </span> </p>
-        </div>
-
-        <!-- Recent Activities -->
-        <div class=" p-4 rounded-2xl shadow col-span-2 bg-blue-50 dark:bg-gray-900 dark:text-gray-400">
-            <h2 class="text-lg font-semibold mb-4"> LESSON PROGRESS ({{$user->lesson_progress}})</h2>
-
-            <ul>
-                    <li class="flex justify-between border-b py-2">
-                        <span> <b>Prev:</b>  </span>
-                        <span class="text-blue-500"> <a href="/viewmaterial/{{$prev_material->learning_cycle}}">    {{ $prev_material->material_title }}  </a>    </span>
-                    </li>
-
-                    <li>
-                        <span class="flex justify-between border-b py-2">
-                            <span> <b>Current:</b>  </span>
-                            <span class="text-green-500"> <a href="#full_material"> {{ is_null($material) ? 'Review' :  $material->material_title  }}   </a>  </span>
-                        </span>
-                    </li>
-
-                    <li class="flex justify-between border-b py-2">
-                        <span> <b>Next:</b>  </span>
-                        <span class="text-gray-500"> &#128274;  {{ $next_material->material_title }}</span>
-                    </li>
-            </ul> 
-
-            <br>
-            <h1 class ="text-center "> 
-                <button onclick="document.getElementById('material_list').classList.remove('hidden')" class="px-4 py-2 dark:text-blue-20 rounded">
-                    View all
-                </button>
-            </h1>
-
-            <x-materiallist  :titles="$material_titles" :user="$user"/>
-        
-
-        </div>
     </div>
+    <div id="dashboardPage" class="p-6 max-w-7xl mx-auto">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div class="p-6 rounded-2xl shadow-lg bg-gradient-to-br from-slate-800 to-slate-900 border border-slate-700 hover:shadow-xl transition col-span-1">
+                @php
+                    $name = explode(' ', $user->name);
 
-    <!-- Available Courses -->
-    @if ($user->lesson_progress == 0)
-        <div class="p-4 rounded-2xl  bg-blue-50 shadow mt-6 dark:bg-gray-900 dark:text-white">
+                    if ($user->lesson_progress > 1) {
 
-                <h2 class="text-xl font-semibold mb-4">Welcome to web3 for crypto class</h2>
+                        $tpv =  (($user->lesson_progress - 1) / $highest_cycle) * $user->points ;
+                    }
+                    else {
+                        $tpv = 0;
+                    }
+                @endphp
 
-             <x-introandrules />
-            
-        </div>
-        
+                <h2 class="text-2xl font-bold mb-4 capitalize"> <span class="text-gray-200"> Welcome, {{ $name[1] ?? $name[0] ?? '' }}! </span></h2>
 
-       
-    @else    
-    <div class=" p-6 rounded-2xl bg-blue-50   dark:bg-gray-900  shadow mt-6">
-        <h2 class="text-xl font-semibold bg-blue-50 dark:text-gray-300 dark:bg-gray-900 ">NEXT LESSON
-            <br><br>
-        </h2>
-        <div class="bg-blue-50 text-white dark:bg-gray-900 dark:text-gray-400">
-             <h1 id="full_material"  class="text-2xl dark:bg-gray-900 text-green-600 font-semibold mb-4"> {{$material->material_title}} <hr> </h1>
-                <br>
-                <div id="materialviewbox" class="dark:bg-gray-900 bg-blue-50 text-black dark:text-gray-400" >
-                    
-                      {!! $material->material !!}
+                <div class="space-y-4 text-gray-800 dark:text-gray-200">
+                    <div class="flex items-center justify-between p-3 bg-slate-800 rounded-lg border border-slate-200 border-slate-700">
+                        <span class="text-gray-200 font-medium">Email:</span>
+                        <span class="text-gray-200 font-semibold">{{ $user->email }}</span>
+                    </div>
 
-                  {{-- <x-materialview/> --}}
+                    <div class="flex gap-4">
+                        <div class="flex-1 p-3 bg-slate-800 rounded-lg border border-slate-700">
+                            <p class="text-xs text-slate-400 font-medium mb-1">Points</p>
+                            <p class="text-2xl font-bold text-emerald-600">{{ $user->points }}</p>
+                        </div>
+                        <div class="flex-1 p-3 bg-slate-800 rounded-lg border border-slate-700">
+                            <p class="text-xs text-slate-400 font-medium mb-1">Total PV</p>
+                            <p class="text-2xl font-bold text-slate-100">{{ number_format($tpv, 2) }}</p>
+                        </div>
+                    </div>
                 </div>
-              
+            </div>
+
+            <div class="p-6 rounded-2xl shadow-lg bg-gradient-to-br from-slate-800 to-slate-900 border border-slate-700 hover:shadow-xl transition col-span-1 md:col-span-2">
+
+                <div class="flex items-center justify-between mb-6">
+                    <h2 class="text-xl font-bold text-white">LESSON PROGRESS</h2>
+                    <span class="inline-block bg-emerald-600 text-gray-200 px-3 py-1 rounded-full text-sm font-semibold">Lesson {{ $user->lesson_progress }}</span>
+                </div>
+
+                <div class="space-y-3">
+                    <div class="flex items-center justify-between p-4 bg-slate-800 rounded-lg border-l-4 border-slate-400">
+                        <span class="font-semibold text-slate-300">Previous:</span>
+                        @if ($prev_material)
+                            <a href="/viewmaterial/{{ $prev_material->learning_cycle }}" class="text-emerald-600 hover:text-emerald-700 font-medium hover:underline">{{ $prev_material->material_title }}</a>
+                        @else
+                            <span class="text-slate-500 font-medium">None</span>
+                        @endif
+                    </div>
+
+                    <div class="flex items-center justify-between p-4 bg-slate-800 rounded-lg border-l-4 border-emerald-500">
+                        <span class="font-semibold text-slate-300">Current:</span>
+                        <a href="#full_material" class="text-emerald-600 hover:text-emerald-700 font-medium hover:underline">{{ is_null($material) ? 'Review' : $material->material_title }}</a>
+                    </div>
+
+                    <div class="flex items-center justify-between p-4 bg-slate-800 rounded-lg border-l-4 border-slate-300">
+                        <span class="font-semibold text-slate-300">Next:</span>
+                        <span class="text-slate-500 font-medium">{{ $next_material->material_title ?? 'Completed' }}</span>
+                    </div>
+                </div>
+
+                <button onclick="document.getElementById('material_list').classList.remove('hidden')" class="mt-6 w-full px-4 py-3 bg-slate-900 hover:bg-slate-800 text-white font-semibold rounded-lg transition transform hover:scale-105">
+                    View All Lessons
+                </button>
+
+                <x-materiallist :titles="$material_titles" :user="$user" />
+            </div>
         </div>
-        @if($material->lesson_video)
-            <div class="w-full max-w-2xl mx-auto mt-6">
-                <h3 class=" dark:bg-gray-900 text-gray-400"><b> &rarrhk; Watch this for more understanding... </b></h3>
-                <iframe
-                    width="100%"
-                    height="360"
-                     src="https://www.youtube.com/embed/YOUTUBE_VIDEO_ID" 
-                    title="YouTube video"
-                    frameborder="0"
-                    allowfullscreen>
-                </iframe>
+
+        @if ($user->lesson_progress == 0)
+            <div class="p-8 rounded-2xl bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 shadow-lg mt-6 text-white border border-emerald-500/30">
+                <div class="mb-4">
+                    <div class="inline-block bg-emerald-500/20 border border-emerald-400/40 rounded-full px-4 py-2 mb-6">
+                        <span class="text-emerald-300 text-sm font-semibold">Welcome to Web3 Learning</span>
+                    </div>
+                    <h2 class="text-3xl font-bold mb-4">Welcome to Web3 for <span class="text-emerald-400">Crypto Class</span></h2>
+                </div>
+
+                <x-introandrules /> 
+            </div>
+        @else
+            <div id="material-reading-theme"> 
+            <div class="p-8 rounded-2xl shadow-lg mt-6 bg-slate-800 border border-slate-700     dark:bg-white">
+                <div >
+                    <div class="reader-focused  bg-gray-800  dark:bg-white   dark:text-gray-900 p-6 rounded-lg">
+                        <h2 class="text-2xl font-bold text-white border-b-2 border-b-gray-400 dark:text-gray-800 dark:border-b-2 mb-2 dark:border-b-gray-600" id="next_lesson" >NEXT LESSON</h2>
+                        <div class="flex justify-end">
+
+                            {{-- button to toggle reading background --}}
+                            <x-togglebutton />
+
+                        </div>
+
+
+                        @if ($material)
+                            <h1 id="full_material" class="text-3xl font-bold text-emerald-400 mb-6">{{ $material->material_title }}</h1>
+
+                            <div id="materialviewbox" class=" max-w-none mb-8 text-slate-300 dark:text-gray-800 leading-relaxed">
+                                {{-- {!! $material->material !!} --}}
+                                @php
+                                    $component = 'lessonmaterials.' . $lessondir;
+                                @endphp
+
+                                <x-dynamic-component :component="$component" />
+
+                                {{-- <x-materialview/> --}}
+                            </div>
+
+                            @if ($material->lesson_video)
+                                <div class="w-full max-w-2xl mx-auto mt-8">
+                                    <p class="text-slate-400 font-semibold mb-4">Watch this for more understanding...</p>
+                                    <iframe
+                                        width="100%"
+                                        height="360"
+                                        src="https://www.youtube.com/embed/YOUTUBE_VIDEO_ID"
+                                        title="YouTube video"
+                                        frameborder="0"
+                                        allowfullscreen
+                                        class="rounded-lg shadow-md">
+                                    </iframe>
+                                </div>
+                            @endif
+                        @endif
+                    </div>
+                
+
+                <div class="border-t border-slate-200 dark:border-slate-800 dark:bg-gray-300 my-8 "></div>
+
+                <h2 class="text-2xl font-bold text-gray-200 dark:text-red-500  mb-4">PRACTICE QUESTIONS</h2>
+                <p class="text-slate-400 dark:text-slate-700 font-medium mb-4">Answer all questions correctly to progress to the next lesson.</p>
+
+                <ul class="space-y-2 mb-6 text-slate-400 dark:text-slate-800">
+                    <li class="flex items-center gap-2"><span class="text-emerald-400 font-bold">&check;</span> Answer all questions correctly.</li>
+                    <li class="flex items-center gap-2"><span class="text-emerald-400 font-bold">&check;</span> For each wrong answer, watch an ad to continue.</li>
+                </ul>
+
+                <div class="border-t border-slate-200 dark:border-slate-800 my-8"></div>
+
+                <form action="/question" id="ajaxForm" method="POST" class="p-4 rounded shadow grid grid-cols-1 md:grid-cols-3 gap-4 dark:bg-gray-900 dark:text-gray-400">
+                    @csrf
+
+                    @foreach ($questions as $item)
+                        @php
+                            $q_count = $loop->iteration;
+                            $lesson_answer = [$item->option_1, $item->option_2, $item->option_3, $item->answer];
+                            shuffle($lesson_answer);
+                        @endphp
+
+                        <div class="p-5 border-2 border-slate-700 rounded-lg bg-slate-800 dark:bg-white hover:border-gray-600 transition q_box" id="question_{{ $item->id }}">
+                            <h3 class="font-bold text-gray-300 dark:text-gray-800 mb-4 text-lg">{{ $q_count }}. {{ $item->question }}</h3>
+
+                            <div class="space-y-3">
+                                @foreach ($lesson_answer as $options)
+                                    <label class="flex items-center gap-3 p-3 rounded-lg hover:bg-gray-600 dark:hover:bg-green-500/50 cursor-pointer transition">
+                                        <input type="radio" class="w-5 h-5 text-emerald-600 accent-emerald-600" name="question_{{ $item->id }}" value="{{ $options }}" required>
+                                        <span class="text-slate-300 dark:text-gray-700 font-medium">{{ $options }}</span>
+                                    </label>
+                                @endforeach
+                            </div>
+                        </div>
+                    @endforeach
+
+                    <div class="col-span-1 md:col-span-3 flex gap-4">
+                        @if ($user->ads_to_play == 0)
+                            <button type="submit" id="testsubmitbutton" class="flex-1 bg-emerald-500 hover:bg-emerald-600 text-white px-8 py-4 rounded-lg font-bold transition transform hover:scale-105 duration-300 shadow-lg shadow-emerald-500/30">
+                                Submit &check;
+                            </button>
+                        @else
+                            <div class="flex-1">
+                                <p class="text-slate-700 dark:text-slate-300 font-semibold mb-4">You got <span class="text-red-600 font-bold">{{ $user->ads_to_play }}</span> question(s) wrong. Watch <span class="text-red-600 font-bold">{{ $user->ads_to_play }}</span> ad(s) to continue.</p>
+                                <button type="button" id="testsubmitbutton" class="w-full bg-emerald-500 hover:bg-emerald-600 text-white px-8 py-4 rounded-lg font-bold transition transform hover:scale-105 duration-300 shadow-lg shadow-emerald-500/30">
+                                    Watch Ads &rarr;
+                                </button>
+                            </div>
+                        @endif
+                    </div>
+                </form>
+
+                <div id="responsediv">
+                    <x-popup
+                        id="welcomePopup"
+                        title="Welcome!"
+                    />
+                </div>
+
+                        </div>
+                 </div>
              </div>
         @endif
-
-<hr class="b-2 border-gray-400 my-6">
-
-             
-
-        <br><br>
-
-
-
-                <h2 class="text-xl text-red-500 dark:text-red-300 font-semibold mb-4">PRACTISE QUESTIONS ( Answer all)</h2>
-                <ul class="list-disc ml-6 dark:bg-gray-900 dark:text-gray-400">
-                    {{-- <li>Complete the lesson to unlock the next one.</li> --}}
-                    <li>Answer all questions correctly.</li>
-                    <li>For all wrong answer, watch Ads to continue.</li>
-                </ul>
-                <hr class="b-2 border-gray-300 my-6">
-
-
-        <div class="grid grid-cols-1 md:grid-cols-1 gap-4">
-
-                
-            <form action="/question" id="ajaxForm" method="POST" class=" p-4 rounded shadow grid grid-cols-1 md:grid-cols-3 gap-4 dark:bg-gray-900 dark:text-gray-400">
-                      @csrf        
-                @foreach ($questions as $item)  
-                 @php
-                        $q_count = $loop->iteration;
-                        $div_id = 'question_' . $q_count;
-                        @endphp
-                    <div class="p-4 border-b border-gray-300 md:border-b-0 md:border-l md:border-gray-300 q_box" id ="question_{{$item->id}}">
-                       
-                    <span><b> {{$q_count}}. {{$item->question}} </b> </span>
-                    <br><br>
-
-
-                    <ol type="A" class="list-[upper-alpha] ml-6 space-y-4">
-                             @php
-                             $lesson_answer  = [$item->option_1, $item->option_2, $item->option_3, $item->answer];
-                              static $i = 1;
-                              shuffle($lesson_answer);
-                             @endphp
-                        @foreach ( $lesson_answer  as $options)
-                       
-                            <li>
-                               <label for="{{$i}}"> <input type="radio" class="dark:bg-gray-300 text-green-400" name="question_{{$item->id}}" id="{{$i}}" value="{{$options}}" required> {{$options}}</label>
-                            </li>  
-                            @php
-                              $i++;
-                             @endphp
-                            @endforeach
-                    </ol>
-                    <br><br>
-                    </div>
-                        
-            @endforeach
-             <br>
-             @if($user->ads_to_play == 0)
-                 
-                    <button type="submit" id="testsubmitbutton" class="bg-blue-600 text-white px-10 py-2 rounded hover:bg-blue-700">
-                        Submit &#8594;
-
-                    </button>
-
-            @else 
-                    <div>
-                        <p>  You failed  <b> {{$user->ads_to_play}} </b> test question(s), and must watch <b> {{$user->ads_to_play}} </b> ads to continue. </p>
-                        <button type="button" id="testsubmitbutton" class="bg-blue-600 text-white px-10 py-2 rounded hover:bg-blue-700">
-                        Watch Ads to continue&#8594;
-                    </button>
-                    </div>
-            @endif
-
-                    
-             </form>
-
-        </div>
-
-        <div id="responsediv">
-            <x-popup 
-                id="welcomePopup"
-                title="Welcome!"
-            />
-  </div>
     </div>
-    @endif
+
+    <script>
 
 
-{{-- js Ajax code incoming
 
---}}
- <script>
-    document.getElementById('ajaxForm').addEventListener('submit', function(e) {
-        e.preventDefault();
+            const readerThemeStorageKey = 'readerTheme';
 
-        const form = e.target;
-        const formData = new FormData(form);
+            function getStoredReaderTheme() {
+                const storedTheme = localStorage.getItem(readerThemeStorageKey);
 
-        const xhr = new XMLHttpRequest();
-        xhr.open('POST', form.action, true);
+                return ['light', 'dark'].includes(storedTheme) ? storedTheme : 'light';
+            }
 
-        // Set CSRF token header
-        const token = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
-        xhr.setRequestHeader('X-CSRF-TOKEN', token);
-        xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
+            function applyReaderTheme(theme) {
+                const readerTheme = document.getElementById('material-reading-theme');
+                const themeToggle = document.querySelector('[data-reader-theme-toggle]');
+                // const themeLabel = document.getElementById('theme-label');
 
-        xhr.onreadystatechange = function () {
+                if (!readerTheme) {
+                    return;
+                }
 
-            if (xhr.readyState === 4) {
-                const responseDiv = document.getElementById('responsediv');
+                const isDark = theme === 'dark';
+                readerTheme.classList.toggle('dark', isDark);
+                themeToggle?.setAttribute('aria-pressed', isDark ? 'true' : 'false');
+
+                // if (themeLabel) {
+                //     themeLabel.textContent = isDark ? 'Reader Dark' : 'Reader Light';
+                // }
+
+            }
+
+            applyReaderTheme(getStoredReaderTheme());
+
+            function toggleDark() {
+                const readerTheme = document.getElementById('material-reading-theme');
+
+                if (!readerTheme) {
+                    return;
+                }
+
+                const nextTheme = readerTheme.classList.contains('dark') ? 'light' : 'dark';
+                localStorage.setItem(readerThemeStorageKey, nextTheme);
+                applyReaderTheme(nextTheme);
+            }
 
 
-                if (xhr.status === 200) 
-            {
+
+        const ajaxForm = document.getElementById('ajaxForm');
+
+        if (ajaxForm) {
+            ajaxForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+
+                const form = e.target;
+                const formData = new FormData(form);
+                const xhr = new XMLHttpRequest();
+                xhr.open('POST', form.action, true);
+
+                const token = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+                xhr.setRequestHeader('X-CSRF-TOKEN', token);
+                xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
+
+                xhr.onreadystatechange = function () {
+                    if (xhr.readyState !== 4) {
+                        return;
+                    }
+
+                    if (xhr.status === 200) {
                         const data = JSON.parse(xhr.responseText);
                         const btn = document.getElementById('testsubmitbutton');
-                        // Change the button type
                         btn.type = 'button';
 
-                        /////returning all radios to normal colours before a response
-                         document.querySelectorAll('input[type="radio"]').forEach(radio => {
+                        document.querySelectorAll('input[type="radio"]').forEach(radio => {
                             radio.style.accentColor = '#9ca3af';
-                            radio.parentElement.style.color = '#9ca3af';// Reset the color of the parent element
+                            radio.parentElement.style.color = '#9ca3af';
                         });
 
-                                 // making the checked input elements red.
-                                const checkedRadios = form.querySelectorAll('input[type="radio"]:checked');
-                                checkedRadios.forEach(radio => {
-                                    radio.style.accentColor = 'red'; // Change the color of the radio button
-                                    radio.parentElement.style.color = 'red'; // Change the color of the parent element
-                                    radio.disabled = true; // Disable the radio button
-                                });
+                        const checkedRadios = form.querySelectorAll('input[type="radio"]:checked');
+                        checkedRadios.forEach(radio => {
+                            radio.style.accentColor = 'red';
+                            radio.parentElement.style.color = 'red';
+                            radio.disabled = true;
+                        });
 
-                                 Object.entries(data.id_and_answers).forEach(([id, the_answer]) => {
-                                    
-                                    // Find the radio input with the given id and value
-                                    // and change its color to green
-                                   
-                                   let div_id = 'question_'+id;
-                                const answers = document.querySelector(`#${div_id} input[value="${the_answer}"]`);
-                                    answers.style.color = 'green';
-                                    answers.style.accentColor = 'green'; 
-                                    answers.style.backgroundColor = 'green'; 
-                                    answers.parentElement.style.color = 'green'; 
-                                    answers.parentElement.style.fontWeight = 'bold'; 
-                                    if (data.ads_to_play == 0) 
-                                    {   // appends ✔ to the label's text
-                                        answers.parentElement.innerHTML += ' ✔'; 
-                                    } 
-                                    
+                        Object.entries(data.id_and_answers).forEach(([id, the_answer]) => {
+                            const divId = 'question_' + id;
+                            const answers = document.querySelector(`#${divId} input[value="${the_answer}"]`);
 
-                            });
-                    if (data.score==6) {
-                         showPopup('welcomePopup', `You answered ${data.score} out of 6 questions correctly!`);
-                         btn.innerHTML = 'Continue to next lesson';
-                         btn.onclick = function () { location.reload();};
+                            if (!answers) {
+                                return;
+                            }
 
+                            answers.style.accentColor = '#10b981';
+                            answers.parentElement.style.color = '#059669';
+                            answers.parentElement.style.fontWeight = 'bold';
+                            answers.parentElement.style.backgroundColor = '#d1fae5';
+
+                            if (data.ads_to_play == 0) {
+                                answers.parentElement.innerHTML += ' &check;';
+                            }
+                        });
+
+                        if (data.score == 6) {
+                            showPopup('welcomePopup', `You answered ${data.score} out of 6 questions correctly!`);
+                            btn.innerHTML = 'Continue to next lesson';
+                            btn.onclick = function () {
+                                localStorage.setItem('scrollTo', 'material-reading-theme');
+                                location.reload();
+                                };       
+                           } else {
+                            showPopup('welcomePopup', `You answered ${data.score} out of 6 questions correctly! <br> <br> Watch ${6 - data.score} ads to continue!`);
+                            btn.innerHTML = 'Watch Ads';
+                        }
+                    } else {
+                        console.error('Server response:', xhr.responseText);
                     }
-                    else
-                    {
-                        showPopup('welcomePopup', `You answered ${data.score} out of 6 questions correctly! <br> <br> Watch ${6 - data.score} ads to continue!`);
-                        btn.innerHTML = 'Watch Ads';
+                };
+
+                xhr.send(formData);
+            });
+        }
+
+
+        function scrollToTopElement() {
+                const id = localStorage.getItem('scrollTo');
+                if (id) {
+                    const el = document.getElementById(id);
+                    console.log('Found scrollTo id in localStorage:', id);
+
+                    if (el) {
+                        el.scrollIntoView({ behavior: 'smooth' });
+                        console.log('Scrolled to element with id:', id);
                     }
+                     localStorage.removeItem('scrollTo');
+                     console.log('Removed scrollTo from localStorage');
+                }
 
-                   
-
-                } else {
-                    responseDiv.innerHTML = `<p style="color: red;">An error occurred.</p>`;
-                    console.error('Server response:', xhr.responseText);
+                else
+                {
+                    console.log('No scrollTo id found in localStorage');
                 }
             }
-        };
 
-        xhr.send(formData);
-    });
-    </script> 
+        document.addEventListener('DOMContentLoaded', function () {
+    
+            scrollToTopElement();
+});
 
 
-</div>
-{{-- @endsection --}}
-
+       
+    </script>
 </x-app-layout>

@@ -13,36 +13,55 @@
     $resolvedAccent = $accentColor ?? 'text-red-600 dark:text-red-400';
 @endphp
 
-<footer class="{{ $resolvedBg }}">
-    <br><br>
-    <nav class="border-t border-gray-300 flex flex-row justify-around px-2 pt-4 {{ $resolvedText }}">
-        <!-- Company -->
-        <div class="flex flex-col space-y-4">
-            <h4 class="{{ $resolvedAccent }} font-bold"><a href="#">COMPANY</a></h4>
-            <h4><a href="{{ route('company', 'about') }}">About us</a></h4>
-            <h4><a href="{{ route('company', 'terms') }}">Terms</a></h4>
-            <h4><a href="{{ route('company', 'disclaimer') }}">Disclaimer</a></h4>
-        </div>
+    <!-- Footer -->
+    <footer class="bg-slate-900 text-slate-300 border-t border-slate-700">
+        <div class="max-w-7xl mx-auto px-6 py-16">
+            <!-- Footer Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+                <!-- Brand Column -->
+                <div>
+                    <div class="text-2xl font-bold text-white mb-4">
+                        TOKEN<span class="text-emerald-400">DEMY</span>
+                    </div>
+                    <p class="text-slate-400 text-sm">Empowering the next generation of Web3 learners with accessible, practical education.</p>
+                </div>
 
-        <!-- Support -->
-        <div class="flex flex-col space-y-4">
-            <h4 class="{{ $resolvedAccent }} font-bold"><a href="#">SUPPORT</a></h4>
-            <h4><a href="{{ route('company', 'contact') }}">Contact support</a></h4>
-            <h4><a href="{{ route('company', 'developers') }}">Developers</a></h4>
-            <h4><a href="{{ route('company', 'glossary') }}">Glossary</a></h4>
-        </div>
+                <!-- Company Column -->
+                <div>
+                    <h4 class="text-white font-bold mb-6">Company</h4>
+                    <ul class="space-y-3">
+                        <li><a href="{{ route('company', 'about') }}" class="text-slate-400 hover:text-emerald-400 transition">About Us</a></li>
+                        <li><a href="{{ route('company', 'terms') }}" class="text-slate-400 hover:text-emerald-400 transition">Terms of Service</a></li>
+                        <li><a href="{{ route('company', 'disclaimer') }}" class="text-slate-400 hover:text-emerald-400 transition">Disclaimer</a></li>
+                    </ul>
+                </div>
 
-        <!-- Socials -->
-        <div class="flex flex-col space-y-4">
-            <h4 class="{{ $resolvedAccent }} font-bold"><a href="#">SOCIALS</a></h4>
-            <h4><a href="#">Facebook</a></h4>
-            <h4><a href="#">LinkedIn</a></h4>
-            <h4><a href="#">Twitter</a></h4>
-        </div>
-    </nav>
+                <!-- Support Column -->
+                <div>
+                    <h4 class="text-white font-bold mb-6">Support</h4>
+                    <ul class="space-y-3">
+                        <li><a href="{{ route('company', 'contact') }}" class="text-slate-400 hover:text-emerald-400 transition">Contact Us</a></li>
+                        <li><a href="{{ route('company', 'developers') }}" class="text-slate-400 hover:text-emerald-400 transition">Developers</a></li>
+                        <li><a href="{{ route('company', 'glossary') }}" class="text-slate-400 hover:text-emerald-400 transition">Glossary</a></li>
+                    </ul>
+                </div>
 
-    <br><br>
-    <div class="w-full text-center py-4 text-sm {{ $resolvedText }}">
-        © Copyright 2025 Codebridge-developers
-    </div>
-</footer>
+                <!-- Socials Column -->
+                <div>
+                    <h4 class="text-white font-bold mb-6">Follow Us</h4>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="text-slate-400 hover:text-emerald-400 transition flex items-center gap-2"><i class="fa-brands fa-facebook text-lg"></i> Facebook</a></li>
+                        <li><a href="#" class="text-slate-400 hover:text-emerald-400 transition flex items-center gap-2"><i class="fa-brands fa-linkedin text-lg"></i> LinkedIn</a></li>
+                        <li><a href="#" class="text-slate-400 hover:text-emerald-400 transition flex items-center gap-2"><i class="fa-brands fa-twitter text-lg"></i> Twitter</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Divider -->
+            <div class="border-t border-slate-700 pt-8">
+                <p class="text-center text-slate-500 text-sm">
+                    © Copyright 2025 <a rel="stylesheet" href="https://ugosima.github.io/dev"><span class="text-emerald-400 font-semibold">Codebridge Developers</span></a>. All rights reserved.
+                </p>
+            </div>
+        </div>
+    </footer>

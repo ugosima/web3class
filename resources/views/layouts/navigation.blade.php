@@ -1,16 +1,16 @@
-<nav x-data="{ open: false }" class="bg-white dark:bg-gray-800 border-b border-gray-100 dark:border-gray-700">
+<nav x-data="{ open: false }" class="bg-gray-800 border-b border-gray-100">
     <!-- Primary Navigation Menu -->
     <div class=" mx-auto">
-        <div class="flex justify-between bg-blue-50 dark:bg-gray-900">
+        <div class="flex justify-between bg-gray-900">
 
           <x-header/> 
   
-
-            <!-- Settings Dropdown -->
+          @auth
+                          <!-- Settings Dropdown -->
             <div class="hidden sm:flex sm:items-center sm:ms-6">
                 <x-dropdown align="right" width="48">
                     <x-slot name="trigger">
-                        <button class="inline-flex items-center px-3 py-2 text-sm leading-4 font-medium rounded-md  border-2 border-gray-700 text-gray-700 font-bold uppercase dark:bg-gray-900  dark:text-gray-300 hover:text-gray-700 dark:hover:text-gray-300 focus:outline-none transition ease-in-out duration-150">
+                        <button class="inline-flex items-center px-3 py-2 text-sm leading-4 font-medium rounded-md  border-2 border-gray-400 text-gray-400 font-bold uppercase bg-gray-900  hover:text-gray-700 focus:outline-none transition ease-in-out duration-150">
                             <div>{{ Auth::user()->name }}</div>
 
                             <div class="ms-1">
@@ -83,6 +83,8 @@
                     </x-responsive-nav-link>
                 </form>
             </div>
+        @endauth
+
         </div>
     </div>
 </nav>

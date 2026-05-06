@@ -4,6 +4,8 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\PractiseController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DashboardController;
+use Illuminate\Support\Facades\Storage;
+
 
 
 
@@ -34,12 +36,29 @@ Route::get('/welcome', function () {
     return view('welcome');
 })->name('welcome');
 
+    Route::post('/joinwaitlist', [PractiseController::class,'waitlist'])->name('joinwaitlist');
+
+//private image retriever 
+       Route::get('/lesson-images/{filename}', function ($filename) {
+    abort_unless(auth()->check(), 403, 'Restricted page');
+
+    $path = 'lesson-images/' . basename($filename);
+
+    abort_unless(Storage::disk('local')->exists($path), 404);
+
+    return response()->file(Storage::disk('local')->path($path));
+})->name('lesson.image');
+
+
+
+
 
 
 // google login routes
 
 Route::get('auth/google', [SocialAuthController::class, 'redirectToGoogle'])->name('google.redirect');
 Route::get('auth/google/callback', [SocialAuthController::class, 'handleGoogleCallback'])->name('google.callback');
+
 
 
 
