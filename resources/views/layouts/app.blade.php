@@ -24,6 +24,14 @@
         <div class="flex flex-col min-h-screen bg-gray-900">
             @include('layouts.navigation')
 
+            @if (session('error'))
+                <div class="mx-auto mt-4 w-full max-w-7xl px-4 sm:px-6 lg:px-8">
+                    <div role="alert" class="rounded-lg border border-red-200 bg-red-50 px-4 py-3 text-sm font-semibold text-red-800">
+                        {{ session('error') }}
+                    </div>
+                </div>
+            @endif
+
             <!-- Page Heading -->
             @isset($header)
                 <header class="bg-gray-900 shadow">

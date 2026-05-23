@@ -2,20 +2,16 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\PractiseController;
+use App\Http\Controllers\Auth\SocialAuthController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\WelcomeController;
+use App\Http\Controllers\DemoController;
 use Illuminate\Support\Facades\Storage;
 
 
 
-
-Route::get('/', function () {
-    return view('welcome');
-});
-
-// Route::get('/dashboard', function () {
-//     return view('dashboard');
-// })->middleware(['auth', 'verified'])->name('dashboard');
+Route::get('/', [WelcomeController::class, 'index']);
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -27,18 +23,12 @@ Route::middleware('auth')->group(function () {
     Route::get('/dashboard', [DashboardController::class,'index'])->name('dashboard');
 
 
-});
+    ///////demos controller
+    Route::get('/demo/{lesson}', [DemoController::class, 'index'])
+    ->name('demo');
 
 
-Route::get('/company/{slug}', function ($slug) {  return view('company', ['slug' => $slug]); })->name('company');
-
-Route::get('/welcome', function () {
-    return view('welcome');
-})->name('welcome');
-
-    Route::post('/joinwaitlist', [PractiseController::class,'waitlist'])->name('joinwaitlist');
-
-//private image retriever 
+    //private image retriever 
        Route::get('/lesson-images/{filename}', function ($filename) {
     abort_unless(auth()->check(), 403, 'Restricted page');
 
@@ -47,17 +37,26 @@ Route::get('/welcome', function () {
     abort_unless(Storage::disk('local')->exists($path), 404);
 
     return response()->file(Storage::disk('local')->path($path));
-})->name('lesson.image');
+    })->name('lesson.image');
+
+
+});
+
+
+
+    Route::get('/company/{slug}', function ($slug) {  return view('company', ['slug' => $slug]); })->name('company');
+
+    Route::get('/welcome', [WelcomeController::class, 'index'])->name('welcome');
+
+    Route::post('/joinwaitlist', [PractiseController::class,'waitlist'])->name('joinwaitlist');
 
 
 
 
+    // google login routes
 
-
-// google login routes
-
-Route::get('auth/google', [SocialAuthController::class, 'redirectToGoogle'])->name('google.redirect');
-Route::get('auth/google/callback', [SocialAuthController::class, 'handleGoogleCallback'])->name('google.callback');
+    Route::get('auth/google', [SocialAuthController::class, 'redirectToGoogle'])->name('google.redirect');
+    Route::get('auth/google/callback', [SocialAuthController::class, 'handleGoogleCallback'])->name('google.callback');
 
 
 

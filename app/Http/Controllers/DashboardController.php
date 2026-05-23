@@ -12,6 +12,10 @@ class DashboardController extends Controller
     public function index()
     {
         $user = Auth::user();
+        $user->load(['referrals' => function ($query) {
+            $query->latest()->select('id', 'name', 'email', 'referrer', 'created_at');
+        }]);
+
         $lessonMap = new Lessonmap();
         $lessondir = $lessonMap->lessondir($user->lesson_progress);
 
@@ -41,6 +45,9 @@ class DashboardController extends Controller
         if (!$next_material) {
             $next_material = (object) ['material_title' => 'No next material available'];
         }
-        return view('dashboard', compact('user','questions','highest_cycle','prev_material','material','next_material', 'material_titles', 'lessondir'));
+        $referrals = $user->referrals;
+        $referralLink = $user->referral_code ? route('register', ['slug' => $user->referral_code]) : null;
+
+        return view('dashboard', compact('user','questions','highest_cycle','prev_material','material','next_material', 'material_titles', 'lessondir', 'referrals', 'referralLink'));
     }
 }

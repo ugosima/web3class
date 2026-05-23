@@ -68,6 +68,7 @@ Always ask and understand the utility of a token before investing, because witho
 
 <h2>Pool Size, Dynamics and Market Behavior</h2>
 
+<p>
 The size of this pool determines how the market behaves.
 
 A small pool leads to sharp price swings, high slippage, and easy manipulation.
@@ -81,3 +82,4 @@ As trading begins, price discovery takes over. Early buyers reduce the token sup
 Liquidity providers initially the creator, and later possibly other investors retain ownership of the assets they deposit via LP tokens. They earn fees from trades but accept the risk of price shifts affecting their share.
 
 Eventually, if interest grows, the token may be listed more widely, attracting deeper liquidity and more participants. At that point, its price is no longer a simple ratio set at launch, it becomes a function of demand, trust, and sustained activity.
+</p>

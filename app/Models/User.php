@@ -23,9 +23,17 @@ class User extends Authenticatable
         'password',
         'ads_to_play',
         'lesson_progress',
+        'authcreatetype',
+        'referral_code',
+        'referrer',
+        'referral_points',
        
     ];
 
+    public function referrals()
+{
+    return $this->hasMany(User::class, 'referrer', 'referral_code');
+}
     /**
      * The attributes that should be hidden for serialization.
      *

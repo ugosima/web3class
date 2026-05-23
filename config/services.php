@@ -40,5 +40,11 @@ return [
     'redirect' => env('GOOGLE_REDIRECT_URI'),
 ],
 
+    'coingecko' => [
+        'api_key' => env('COINGECKO_API_KEY'),
+        'pro_url' => env('COINGECKO_PRO_URL', 'https://pro-api.coingecko.com/api/v3'),
+        'demo_url' => env('COINGECKO_DEMO_URL', 'https://api.coingecko.com/api/v3'),
+    ],
+
 
 ];

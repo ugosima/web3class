@@ -7,6 +7,8 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Redirect;
 use App\Services\Lessonmap;
+use App\Models\User;
+
 
 
 
@@ -18,6 +20,9 @@ class PractiseController extends Controller
                 $user =Auth::user();
                 $lesson_progress = $user->lesson_progress;
                 $ads_to_play = $user->ads_to_play;
+
+                $lessonMap = new Lessonmap();
+                $total = $lessonMap->totalLessons(); // Total number of lessons
 
         $questions = DB::table('questions_and_answers')->select('id','answer')->where('learning_cycle',$lesson_progress)->get();
         // retrieving answers of the lesson level
@@ -65,7 +70,7 @@ class PractiseController extends Controller
                 }
             }
               
-            if ($ads_to_play == 0)  
+            if ($ads_to_play == 0 && $lesson_progress <= $total)  
             {
                     if ($incorrect_answer_scores > 0) {
                                 Auth::user()->increment('ads_to_play', $incorrect_answer_scores);
@@ -74,6 +79,12 @@ class PractiseController extends Controller
                     else {
                         // All correct answer logic
                         Auth::user()->increment('lesson_progress', 1);
+                        if ($user->referrer != null) 
+                            {
+                                 User::where('referral_code', $user->referrer)
+                                ->where('referral_points', '<', 15000)
+                                ->increment('referral_points', 5);                            
+                            }
                     }
 
                 }
@@ -137,8 +148,11 @@ class PractiseController extends Controller
         if ( $view_id <= $user->lesson_progress)
         { 
             $material = DB::table('questions_and_answers')->where('learning_cycle', $id)->select( 'material_title')->first();
-            $material_titles = DB::table('questions_and_answers') ->whereNotNull('material_title')->pluck('material_title', 'learning_cycle'); // Retrieve material titles with learning_cycle as key, this is used to render dynamic content from another component , and so must not be retrieved together with material.
-
+            $material_titles = DB::table('questions_and_answers')
+                            ->whereNotNull('material_title')
+                            ->whereRaw("TRIM(material_title) != ''")
+                            ->orderBy('learning_cycle', 'asc')
+                            ->pluck('material_title', 'learning_cycle');
             if (!$material) {
                 return response()->json(['message' => 'Material not found'], 404);
             }

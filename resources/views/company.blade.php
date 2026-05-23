@@ -1,172 +1,145 @@
-
 <x-app-layout>
     <x-slot name="title">COMPANY</x-slot>
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
-            {{ __('COMPANY') }}
-        </h2>
-    </x-slot>
-    <br>
-    <br>
-    <br>
 
-<div class="max-w-4xl mx-auto px-6 py-12 flex-1 bg-gray-900 border-2 border-gray-600 rounded-2xl shadow-md">
-        
-        @auth
-        <div class="max-w-7xl mx-auto ">
-                    <h2 class="font-semibold text-xl">
-                        <a href="{{ route('dashboard') }}" class="text-gray-200"> <span class="text-red-500 font-bold ">&#8592;</span> DASHBOARD </a>
-                    </h2>
-                    <br>
-                    <br>
-                </div>
-        @endauth
+    @php
+        $pageTitles = [
+            'about' => 'About Us',
+            'terms' => 'Terms of Service',
+            'disclaimer' => 'Disclaimer',
+            'support' => 'Support',
+            'contact' => 'Contact Support',
+            'developers' => 'Developers',
+            'engagement_rules' => 'Rules of Engagement',
+            'glossary' => 'Glossary',
+        ];
 
+        $pageTitle = $pageTitles[$slug] ?? 'Company';
+    @endphp
 
-            <div class="max-w-4xl flex bg-gray-700 justify-center">
-                <a href="/">
-                    <x-application-logo class="w-20 h-20 fill-current text-gray-600" />
+    <main class="min-h-screen bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950 px-4 py-10 text-slate-300 sm:px-6">
+        <div class="mx-auto max-w-4xl">
+            <div class="mb-6 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+                <a href="{{ route('welcome') }}" class="inline-flex items-center gap-3">
+                    <x-application-logo class="h-11 w-11 fill-current text-emerald-400" />
+                    <span class="text-2xl font-black text-white">TOKEN<span class="text-emerald-400">DEMY</span></span>
                 </a>
+
+                @auth
+                    <a href="{{ route('dashboard') }}" class="inline-flex items-center justify-center gap-2 rounded-lg border border-emerald-300/30 bg-emerald-400/10 px-4 py-2 text-sm font-bold uppercase text-emerald-300 transition hover:bg-emerald-400 hover:text-slate-950">
+                        <i class="fa-solid fa-arrow-left"></i>
+                        Dashboard
+                    </a>
+                @endauth
             </div>
 
-            <br>
-            <br>
-            <br>
+            <section class="overflow-hidden rounded-2xl border border-emerald-300/20 bg-slate-900/80 shadow-2xl shadow-emerald-500/10">
+                <div class="border-b border-white/10 bg-slate-950/50 px-6 py-6 sm:px-8">
+                    <p class="text-xs font-bold uppercase tracking-wider text-emerald-300">Company</p>
+                    <h1 class="mt-2 text-3xl font-black text-white sm:text-4xl">{{ $pageTitle }}</h1>
+                </div>
 
+                <div class="space-y-5 px-6 py-8 leading-7 sm:px-8">
+                    @if($slug === 'about')
+                        <p>
+                            Tokendemy is a hybrid educational and practical platform designed to simplify blockchain and cryptocurrency learning, integration, trading, and use for everyone.
+                        </p>
+                        <p>
+                            Our mission is to bridge the knowledge gap in the fast-growing world of digital assets by offering structured lessons, practical guides, and real-world insights for onchain activity.
+                        </p>
+                        <p>
+                            Whether you are a beginner taking your first steps or an advanced trader refining your skills, Tokendemy provides clear, trustworthy, and easy-to-follow learning resources.
+                        </p>
+                    @endif
 
+                    @if($slug === 'terms')
+                        <ul class="space-y-3">
+                            <li class="rounded-lg border border-white/10 bg-slate-950/40 p-4"><strong class="text-white">Educational Purpose Only</strong> - All materials provided are for learning purposes and do not constitute financial advice.</li>
+                            <li class="rounded-lg border border-white/10 bg-slate-950/40 p-4"><strong class="text-white">User Responsibility</strong> - You are solely responsible for how you use the knowledge and tools provided.</li>
+                            <li class="rounded-lg border border-white/10 bg-slate-950/40 p-4"><strong class="text-white">No Liability</strong> - TokenDemy is not liable for any gains or losses incurred from applying the information presented.</li>
+                            <li class="rounded-lg border border-white/10 bg-slate-950/40 p-4"><strong class="text-white">Content Ownership</strong> - All materials, courses, and resources are the property of TokenDemy unless stated otherwise.</li>
+                            <li class="rounded-lg border border-white/10 bg-slate-950/40 p-4"><strong class="text-white">Account Use</strong> - You agree not to misuse your account or attempt unauthorized access.</li>
+                        </ul>
+                    @endif
 
+                    @if($slug === 'disclaimer')
+                        <p>
+                            Cryptocurrency investments carry risks, including the possible loss of principal. Tokendemy does not provide investment, trading, or financial advice. All content is strictly educational.
+                        </p>
+                        <p>
+                            Before making any financial decision, you should consult with a qualified financial advisor and conduct independent research. Tokendemy shall not be held liable for financial losses, trading mistakes, or reliance on third-party platforms or tools.
+                        </p>
+                    @endif
 
-    {{-- About Us --}}
-    @if($slug === 'about')
-        <h1 class="text-3xl font-bold text-gray-200 mb-6">About Us</h1>
-        <p class="text-gray-300 leading-relaxed mb-4">
-            Tokendemy is a hybrid (Educational/Practical) platform designed to simplify blockchain and cryptocurrency learning, integration, trading, and use for everyone. 
-            Our mission is to bridge the knowledge gap in the fast-growing world of digital assets by offering structured lessons, 
-            practical guides, and real-world insights for onchain activity.
-        </p>
-        <p class="text-gray-300 leading-relaxed">
-            We believe in empowering learners with the right tools, strategies, and understanding to make informed decisions in the crypto space. 
-            Whether you’re a beginner taking your first steps or an advanced trader refining your skills, Tokendemy provides clear, trustworthy, 
-            and easy-to-follow learning resources.
-        </p>
-    @endif
+                    @if($slug === 'support')
+                        <p>
+                            We are here to ensure your learning journey is smooth and effective. Our support team can assist you with:
+                        </p>
+                        <ul class="list-disc space-y-2 pl-6 marker:text-emerald-400">
+                            <li>Accessing your account and courses</li>
+                            <li>Reporting technical issues or bugs</li>
+                            <li>Guiding you to the right learning resources</li>
+                            <li>Answering general platform-related questions</li>
+                        </ul>
+                    @endif
 
-    {{-- Terms --}}
-    @if($slug === 'terms')
-        <h1 class="text-3xl font-bold text-gray-200 mb-6">Terms</h1>
-        <ul class="list-disc pl-6 text-gray-300 space-y-2">
-            <li><strong>Educational Purpose Only</strong> – All materials provided are for learning purposes and do not constitute financial advice.</li>
-            <li><strong>User Responsibility</strong> – You are solely responsible for how you use the knowledge and tools provided.</li>
-            <li><strong>No Liability</strong> – TokenDemy is not liable for any gains or losses incurred from applying the information presented.</li>
-            <li><strong>Content Ownership</strong> – All materials, courses, and resources are the property of TokenDemy unless stated otherwise.</li>
-            <li><strong>Account Use</strong> – You agree not to misuse your account or attempt unauthorized access.</li>
-        </ul>
-    @endif
+                    @if($slug === 'contact')
+                        <p>
+                            We are here to ensure your learning journey is smooth and effective. Our support team can assist you with account access, course questions, bug reports, and platform guidance.
+                        </p>
+                        <div class="rounded-xl border border-emerald-300/20 bg-emerald-400/10 p-5">
+                            <p class="font-bold text-white">If you need assistance, reach us through:</p>
+                            <p class="mt-2 text-emerald-200"><strong>Email:</strong> support@tokendemy.com</p>
+                            <p class="mt-3 text-sm text-slate-400">Our typical response time is <strong class="text-slate-200">24 - 48 hours</strong> during working days.</p>
+                        </div>
+                    @endif
 
-    {{-- Disclaimer --}}
-    @if($slug === 'disclaimer')
-        <h1 class="text-3xl font-bold text-gray-200 mb-6">Disclaimer</h1>
-        <p class="text-gray-300 leading-relaxed">
-            Cryptocurrency investments carry risks, including the possible loss of principal. Tokendemy does not provide investment, 
-            trading, or financial advice. All content is strictly educational.
-        </p>
-        <p class="text-gray-300 leading-relaxed mt-4">
-            Before making any financial decision, you should consult with a qualified financial advisor and conduct independent research. 
-            Tokendemy shall not be held liable for financial losses, trading mistakes, or reliance on third-party platforms/tools.
-        </p>
-    @endif
+                    @if($slug === 'developers')
+                        <p>
+                            Tokendemy is built by a dedicated team of developers passionate about blockchain, education, and open-source technologies.
+                        </p>
+                        <ul class="list-disc space-y-2 pl-6 marker:text-emerald-400">
+                            <li><strong class="text-white">Tech stack:</strong> Laravel, Tailwind CSS, Alpine.js, MySQL, API integrations</li>
+                            <li><strong class="text-white">Roadmap:</strong> mobile apps, on-chain learning modules, and practical Web3 tools</li>
+                        </ul>
+                        <p>Developers interested in contributing can reach us at <strong class="text-emerald-300">dev@tokendemy.com</strong>.</p>
+                    @endif
 
-    {{-- Support --}}
-    @if($slug === 'support')
-        <h1 class="text-3xl font-bold text-gray-200 mb-6">Support</h1>
-        <p class="text-gray-300 leading-relaxed mb-2">
-            We are here to ensure your learning journey is smooth and effective. Our support team can assist you with:
-        </p>
-        <ul class="list-disc pl-6 text-gray-300 space-y-2">
-            <li>Accessing your account and courses</li>
-            <li>Reporting technical issues or bugs</li>
-            <li>Guiding you to the right learning resources</li>
-            <li>Answering general platform-related questions</li>
-        </ul>
-    @endif
+                    @if($slug === 'engagement_rules')
+                        <div class="rounded-xl border border-white/10 bg-slate-950/40 p-5">
+                            <x-introandrules />
+                        </div>
+                    @endif
 
-    {{-- Contact Support --}}
-    @if($slug === 'contact')
-        <h1 class="text-3xl font-bold text-gray-200 mb-6">Contact Support</h1>
-
-          <p class="text-gray-300 leading-relaxed mb-2">
-            We are here to ensure your learning journey is smooth and effective. Our support team can assist you with:
-        </p>
-        <ul class="list-disc pl-6 text-gray-300 space-y-3">
-            <li>Accessing your account and courses</li>
-            <li>Reporting technical issues or bugs</li>
-            <li>Guiding you to the right learning resources</li>
-            <li>Answering general platform-related questions</li>
-        </ul>
-        <br>
-
-        <p class="text-gray-300 mb-2"><b> If you need assistance, reach us through: </b></p>
-        <ul class="text-gray-300 space-y-3">
-            <li><b>📧 Email:</b> support@tokendemy.com</li>    
-        </ul>
-        <p class="text-gray-300 mt-4">Our typical response time is <strong>24 – 48 hours</strong> during working days.</p>
-
-       
-    @endif
-
-    {{-- Developers --}}
-    @if($slug === 'developers')
-        <h1 class="text-3xl font-bold text-gray-200 mb-6">Developers</h1>
-        <p class="text-gray-300 mb-4">
-            Tokendemy is built by a dedicated team of developers passionate about blockchain, education, and open-source technologies.
-        </p>
-        <ul class="list-disc pl-6 text-gray-300 space-y-2">
-            <li><strong>Tech stack:</strong> Laravel, Tailwind CSS, Alpine.js, MySQL, API Integrations</li>
-            <li><strong>Roadmap:</strong> expanding into mobile apps and integrating on-chain learning modules</li>
-        </ul>
-        <p class="text-gray-300 mt-4">Developers interested in contributing can reach us at <strong>dev@tokendemy.com</strong>.</p>
-    @endif
-
-    @if($slug === 'engagement_rules')
-        <x-introandrules />
-    @endif
-
-    {{-- Glossary --}}
-    @if($slug === 'glossary')
-        <h1 class="text-3xl font-bold text-gray-200 mb-6">Glossary</h1>
-        <dl class="space-y-4">
-            <div>
-                <dt class="font-semibold text-gray-300">Blockchain</dt>
-                <dd class="text-gray-300">A decentralized digital ledger that records transactions across multiple computers.</dd>
-            </div>
-            <div>
-                <dt class="font-semibold text-gray-300">Token</dt>
-                <dd class="text-gray-300">A digital asset created on an existing blockchain, often representing value, utility, or rights.</dd>
-            </div>
-            <div>
-                <dt class="font-semibold text-gray-300">Wallet</dt>
-                <dd class="text-gray-300">A tool (software or hardware) that allows users to store and manage cryptocurrencies securely.</dd>
-            </div>
-            <div>
-                <dt class="font-semibold text-gray-300">Exchange</dt>
-                <dd class="text-gray-300">A platform where cryptocurrencies can be bought, sold, or traded.</dd>
-            </div>
-            <div>
-                <dt class="font-semibold text-gray-300">DeFi (Decentralized Finance)</dt>
-                <dd class="text-gray-300">Financial applications built on blockchain that operate without intermediaries.</dd>
-            </div>
-            <div>
-                <dt class="font-semibold text-gray-300">NFT (Non-Fungible Token)</dt>
-                <dd class="text-gray-300">A unique digital asset representing ownership of content such as art, music, or collectibles.</dd>
-            </div>
-        </dl>
-    @endif
-
-</div>
-<br>
-<br>
-<br>
-
+                    @if($slug === 'glossary')
+                        <dl class="grid gap-4 sm:grid-cols-2">
+                            <div class="rounded-lg border border-white/10 bg-slate-950/40 p-4">
+                                <dt class="font-bold text-white">Blockchain</dt>
+                                <dd class="mt-1 text-sm text-slate-400">A decentralized digital ledger that records transactions across multiple computers.</dd>
+                            </div>
+                            <div class="rounded-lg border border-white/10 bg-slate-950/40 p-4">
+                                <dt class="font-bold text-white">Token</dt>
+                                <dd class="mt-1 text-sm text-slate-400">A digital asset created on an existing blockchain, often representing value, utility, or rights.</dd>
+                            </div>
+                            <div class="rounded-lg border border-white/10 bg-slate-950/40 p-4">
+                                <dt class="font-bold text-white">Wallet</dt>
+                                <dd class="mt-1 text-sm text-slate-400">A tool that allows users to store and manage cryptocurrencies securely.</dd>
+                            </div>
+                            <div class="rounded-lg border border-white/10 bg-slate-950/40 p-4">
+                                <dt class="font-bold text-white">Exchange</dt>
+                                <dd class="mt-1 text-sm text-slate-400">A platform where cryptocurrencies can be bought, sold, or traded.</dd>
+                            </div>
+                            <div class="rounded-lg border border-white/10 bg-slate-950/40 p-4">
+                                <dt class="font-bold text-white">DeFi</dt>
+                                <dd class="mt-1 text-sm text-slate-400">Financial applications built on blockchain that operate without intermediaries.</dd>
+                            </div>
+                            <div class="rounded-lg border border-white/10 bg-slate-950/40 p-4">
+                                <dt class="font-bold text-white">NFT</dt>
+                                <dd class="mt-1 text-sm text-slate-400">A unique digital asset representing ownership of content such as art, music, or collectibles.</dd>
+                            </div>
+                        </dl>
+                    @endif
+                </div>
+            </section>
+        </div>
+    </main>
 </x-app-layout>
-
-

@@ -41,12 +41,12 @@
     </section>
 
     <!-- Crypto Market Section -->
-    <section class="py-20 bg-white">
+    <section class="py-10 bg-white">
         <div class="max-w-7xl mx-auto px-6">
-            <div class="mb-12">
-                <h2 class="text-4xl md:text-5xl font-bold text-slate-900 mb-4">Crypto Market Overview</h2>
-                <p class="text-lg text-slate-600">Real-time cryptocurrency prices and market data</p>
-                <div class="h-1 w-16 bg-emerald-500 mt-6"></div>
+            <div class="mb-6">
+                <h2 class="text-4xl md:text-3xl font-bold text-slate-900 mb-3">Crypto market overview</h2>
+                {{-- <p class="text-lg text-slate-600">Real-time cryptocurrency prices and market data</p> --}}
+                {{-- <div class="h-1 w-16 bg-emerald-500 mt-6"></div> --}}
             </div>
 
             <!-- Crypto Table -->
@@ -73,16 +73,55 @@
                             </tr>
                         </thead>
 
-                        <!-- Table Body - Populated by JavaScript -->
                         <tbody id="crypto-body" class="divide-y divide-slate-200">
-                            <!-- Rows will be inserted here dynamically -->
+                            @forelse ($cryptoPrices as $coin)
+                                @php
+                                    $change = $coin['price_change_percentage_24h'] ?? 0;
+                                    $isPositive = $change >= 0;
+                                    $changeClasses = $isPositive
+                                        ? 'bg-emerald-50 text-emerald-600 ring-emerald-100'
+                                        : 'bg-red-50 text-red-600 ring-red-100';
+                                @endphp
+
+                                <tr class="border-b border-slate-100 hover:bg-slate-50/80 transition-colors">
+                                    <td class="px-6 py-5 text-left">
+                                        <div class="flex items-center gap-3">
+                                            <img src="{{ $coin['image'] ?? '' }}" alt="{{ $coin['name'] ?? 'Crypto' }} logo" class="h-10 w-10 rounded-full ring-1 ring-slate-200">
+                                            <div>
+                                                <div class="text-base font-extrabold text-slate-950 leading-tight">{{ $coin['name'] ?? 'Unknown asset' }}</div>
+                                                <div class="text-xs font-semibold uppercase tracking-wide text-slate-500">{{ $coin['symbol'] ?? '' }}/USD</div>
+                                            </div>
+                                        </div>
+                                    </td>
+
+                                    <td class="px-6 py-5 text-right font-semibold text-slate-800 tabular-nums">
+                                        ${{ number_format($coin['current_price'] ?? 0, 2) }}
+                                    </td>
+
+                                    <td class="px-6 py-5 text-right">
+                                        <span class="inline-flex min-w-20 justify-center rounded-full px-3 py-1 text-xs font-bold ring-1 {{ $changeClasses }}">
+                                            {{ $isPositive ? '+' : '' }}{{ number_format($change, 2) }}%
+                                        </span>
+                                    </td>
+
+                                    <td class="px-6 py-5 text-right hidden md:table-cell font-semibold text-slate-700 tabular-nums">
+                                        ${{ number_format(($coin['market_cap'] ?? 0) / 1000000000, 2) }}B
+                                    </td>
+                                </tr>
+                            @empty
+                                <tr>
+                                    <td colspan="4" class="px-6 py-8 text-center text-slate-500">
+                                        Market data is temporarily unavailable.
+                                    </td>
+                                </tr>
+                            @endforelse
                         </tbody>
                     </table>
                 </div>
 
                 <!-- Table Footer Info -->
                 <div class="px-6 py-4 bg-slate-200/50 border-t border-slate-200 flex items-center justify-between text-sm text-slate-600">
-                    <p>Last updated: <span id="update-time" class="font-semibold text-slate-900">--</span></p>
+                    <p>Last updated: <span id="update-time" class="font-semibold text-slate-900">{{ $cryptoPricesUpdatedAt ?? '--' }}</span></p>
                     <p class="hidden sm:block text-slate-600">Data from major cryptocurrency exchanges</p>
                 </div>
             </div>
@@ -91,11 +130,11 @@
 
 
     <!-- Features Section -->
-    <section id="features" class="py-20 bg-white">
+    <section id="features" class="py-10 bg-white">
         <div class="max-w-7xl mx-auto px-6">
             <div class="text-center mb-16">
-                <h2 class="text-4xl md:text-5xl font-bold text-slate-900 mb-4">Why Choose TOKENDEMY?</h2>
-                <div class="h-1 w-16 bg-emerald-500 mx-auto"></div>
+                <h2 class="text-4xl md:text-3xl font-bold text-slate-900 mb-4">Why choose TOKENDEMY?</h2>
+                {{-- <div class="h-1 w-16 bg-emerald-500 mx-auto"></div> --}}
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -202,7 +241,30 @@
 
             <!-- News Grid -->
             <div id="news-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- News cards will be dynamically inserted here -->
+                @foreach ($cryptoNews as $article)
+                    <a href="{{ $article['url'] }}" target="_blank" rel="noopener noreferrer" class="group bg-white rounded-2xl border border-slate-200 overflow-hidden hover:border-emerald-400 transition duration-300 hover:shadow-xl">
+                        @if (! empty($article['image']))
+                            <img src="{{ $article['image'] }}" alt="{{ $article['title'] }}" class="h-44 w-full object-cover">
+                        @else
+                            <div class="h-44 bg-gradient-to-r from-slate-900 to-emerald-600"></div>
+                        @endif
+                        <div class="bg-gradient-to-r from-gray-800 to-green-600 h-1"></div>
+                        <div class="p-8">
+                            <div class="mb-4">
+                                <p class="text-xs font-bold uppercase tracking-wider text-emerald-700">
+                                    {{ $article['source_name'] ?? 'CoinGecko News' }}
+                                </p>
+                                <h3 class="mt-2 text-xl font-bold text-slate-900 group-hover:text-emerald-700 transition">
+                                    {{ $article['title'] }}
+                                </h3>
+                            </div>
+                            <div class="flex items-center justify-between gap-4 text-sm text-slate-500">
+                                <span>{{ $article['author'] ?? 'Crypto desk' }}</span>
+                                <span>{{ $article['posted_at_display'] ?? '' }}</span>
+                            </div>
+                        </div>
+                    </a>
+                @endforeach
 
 
 

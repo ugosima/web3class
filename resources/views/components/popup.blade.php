@@ -36,7 +36,7 @@
     id="{{ $popupId }}" 
     class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50 transition-opacity duration-500 {{ $hidden }}"
 >
-    <div class="bg-white text-black dark:bg-gray-900 dark:text-gray-400 rounded-2xl shadow-xl max-w-sm w-full p-6 text-center relative">
+    <div class="bg-white text-gray-900 rounded-2xl shadow-xl max-w-sm w-full p-6 text-center relative">
         
         <!-- Title -->
         <h2 class="text-xl font-semibold mb-2" id="{{ $popupId }}Title">
