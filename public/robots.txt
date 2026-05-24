@@ -8,6 +8,7 @@ User-agent: *
 Allow: /
 Allow: /welcome
 Allow: /company/
+Sitemap: http://127.0.0.1:8000/sitemap.xml
 
 # Authentication, account, and session routes.
 Disallow: /login
