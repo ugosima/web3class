@@ -45,7 +45,8 @@
     <li>Every failed session results to a deduction of 100 points, regardless of number of failed questions. </li>
     <li>Total points value (<b>TPV</b>) is calculated as (<b>TPV</b>) = (progress/total number of lessons available) * Points.</li>
     <li>The more sessions you complete, the more your points value</li>
-    <li>For every lession your referral completes, you get a reward of 5TPV, so every referral can give you a maximum of 5 * Total number of lessons.</li>
+    <li>For every referral, you get a reward of 3TPV</li>
+    <li>For every lession your referral completes, you get a reward of 5TPV.</li>
     <li>Your referral points is limited to a maximum of 15000TPV; Once reached, your referrals completing their lessons would not add any reward to your TPV.</li>
     <li>Read and understand before attempting the questions, this positions you to answer them correctly, thereby maintaining your points.</li>
     <li>The more your <b>TPV</b>, the more future rewards you will get; the rewards can be used on our utility platforms.</li>
@@ -64,11 +65,13 @@
 
 <div class="flex justify-center items-center h-64 bg-gray-800 text-gray-400 rounded-lg shadow-md">
      
-  <a href="{{ route('startclass') }}" class="flex items-center font-bold mt-2 bg-green-600 w-72 h-16 text-white justify-center px-3 py-1 rounded hover:bg-blue-600">
-            
-        CONTINUE
+  <form method="POST" action="{{ route('startclass') }}">
+    @csrf
 
-     </a>
+    <button type="submit" class="flex items-center font-bold mt-2 bg-green-600 w-72 h-16 text-white justify-center px-3 py-1 rounded hover:bg-blue-600">
+      CONTINUE
+    </button>
+  </form>
 </div>
 
 

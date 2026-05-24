@@ -347,17 +347,7 @@
         @elseif (!$material && ($user->lesson_progress + 1) > $safeHighestCycle)
 
             <div class="p-8 rounded-2xl bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 shadow-lg mt-6 text-white border border-emerald-500/30">
-                {{-- <div class="mb-4">
-                    <div class="inline-block bg-emerald-500/20 border border-emerald-400/40 rounded-full px-4 py-2 mb-6">
-                        <span class="text-emerald-300 text-sm font-semibold">       
-                             congratulations on completing the web3, blockchain, and crypto learning series!
-                            </span>
-                    </div>
-                    <h2 class="text-3xl font-bold mb-4">Congratulations,You have completed the Web3, Blockchain, and Crypto learning series.</h2>
-                </div> --}}
-
                 <x-lessonmaterials.lesson-completion />
-
             </div>
 
         @else 

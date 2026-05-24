@@ -21,8 +21,12 @@
             </div>
 
             <div class="w-full sm:max-w-md px-6">
+                @php
+                    $googleReferralCode = request()->route('slug') ?? ($referralCode ?? null);
+                @endphp
+
                 <a
-                    href="{{ route('google.redirect') }}"
+                    href="{{ route('google.redirect', array_filter(['referral_code' => $googleReferralCode])) }}"
                     class="group mt-4 flex w-full items-center justify-center gap-3 rounded-lg border border-slate-300 bg-white px-4 py-3 text-sm font-bold text-slate-700 shadow-sm transition hover:border-emerald-300 hover:bg-slate-50 hover:text-slate-950 focus:outline-none focus:ring-2 focus:ring-emerald-500/30 focus:ring-offset-2 focus:ring-offset-gray-800"
                 >
                     <span class="flex h-8 w-8 items-center justify-center rounded-full bg-white ring-1 ring-slate-200 transition group-hover:ring-emerald-200">

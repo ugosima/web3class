@@ -17,8 +17,9 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-    Route::post('/question', [PractiseController::class,'index']);
-    Route::get('/startclass', [PractiseController::class,'startClass'])->name('startclass');
+    Route::post('/question', [PractiseController::class,'index'])
+        ->middleware('throttle:30,1');
+    Route::post('/startclass', [PractiseController::class,'startClass'])->name('startclass');
     Route::get('/viewmaterial/{id}', [PractiseController::class,'viewMaterialById'])->name('viewmaterial');
     Route::get('/dashboard', [DashboardController::class,'index'])->name('dashboard');
 
@@ -48,19 +49,8 @@ Route::middleware('auth')->group(function () {
 
     Route::get('/welcome', [WelcomeController::class, 'index'])->name('welcome');
 
-    Route::post('/joinwaitlist', [PractiseController::class,'waitlist'])->name('joinwaitlist');
-
-
-
-
-    // google login routes
-
-    Route::get('auth/google', [SocialAuthController::class, 'redirectToGoogle'])->name('google.redirect');
-    Route::get('auth/google/callback', [SocialAuthController::class, 'handleGoogleCallback'])->name('google.callback');
-
-
-
-
-
+    Route::post('/joinwaitlist', [PractiseController::class,'waitlist'])
+        ->middleware('throttle:3,1')
+        ->name('joinwaitlist');
 
 require __DIR__.'/auth.php';

@@ -1,2 +1,42 @@
+# Production robots policy for Web3Class.
+# This file guides well-behaved crawlers only; private routes must still be
+# protected by Laravel middleware, authorization, and server configuration.
+
 User-agent: *
-Disallow:
+
+# Public pages that can be indexed.
+Allow: /
+Allow: /welcome
+Allow: /company/
+
+# Authentication, account, and session routes.
+Disallow: /login
+Disallow: /register
+Disallow: /forgot-password
+Disallow: /reset-password
+Disallow: /verify-email
+Disallow: /confirm-password
+Disallow: /password
+Disallow: /logout
+Disallow: /set-password
+Disallow: /email/
+Disallow: /auth/
+
+# Authenticated learning experience and private user state.
+Disallow: /dashboard
+Disallow: /profile
+Disallow: /startclass
+Disallow: /question
+Disallow: /viewmaterial/
+Disallow: /demo/
+Disallow: /lesson-images/
+
+# Form endpoints and internal/runtime paths.
+Disallow: /joinwaitlist
+Disallow: /storage/
+Disallow: /vendor/
+Disallow: /build/
+Disallow: /hot
+
+# Avoid duplicate or noisy indexed URLs.
+Disallow: /*?*
