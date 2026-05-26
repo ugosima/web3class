@@ -31,14 +31,16 @@ Route::middleware('auth')->group(function () {
 
     //private image retriever 
        Route::get('/lesson-images/{filename}', function ($filename) {
+
     abort_unless(auth()->check(), 403, 'Restricted page');
 
-    $path = 'lesson-images/' . basename($filename);
+    $path = storage_path('app/private/lesson-images/' . basename($filename));
 
-    abort_unless(Storage::disk('local')->exists($path), 404);
+    abort_unless(file_exists($path), 404);
 
-    return response()->file(Storage::disk('local')->path($path));
-    })->name('lesson.image');
+    return response()->file($path);
+
+})->name('lesson.image');
 
 
 });
