@@ -15,5 +15,14 @@ export default defineConfig({
         tailwindcss(),
     ],
 
+
+    //  server: {
+    //     host: true,
+    //     port: 5173,
+    //     strictPort: true,
+    //     hmr: {
+    //         host: '10.150.169.1' // <-- replace with YOUR laptop IP
+    //     }
+    // }
    
 })
