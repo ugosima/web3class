@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\WelcomeController;
 use App\Http\Controllers\DemoController;
+use App\Http\Controllers\LessonImageController;
 use Illuminate\Support\Facades\Storage;
 
 
@@ -30,17 +31,8 @@ Route::middleware('auth')->group(function () {
 
 
     //private image retriever 
-       Route::get('/lesson-images/{filename}', function ($filename) {
-
-    abort_unless(auth()->check(), 403, 'Restricted page');
-
-    $path = storage_path('app/private/lesson-images/' . basename($filename));
-
-    abort_unless(file_exists($path), 404);
-
-    return response()->file($path);
-
-})->name('lesson.image');
+     Route::get('/lesson-images/{filename}', [LessonImageController::class, 'show'])
+    ->name('lesson.image');
 
 
 });
