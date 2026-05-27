@@ -55,4 +55,17 @@ Route::middleware('auth')->group(function () {
         ->middleware('throttle:3,1')
         ->name('joinwaitlist');
 
+
+
+        // routes/web.php - remove after debugging
+Route::get('/debug-image', function () {
+    $path = storage_path('app/private/lesson-images/image.jpeg');
+    return response()->json([
+        'cwd' => getcwd(),
+        'storage_path' => $path,
+        'exists' => file_exists($path),
+        'files' => scandir(storage_path('app/private/lesson-images/')),
+    ]);
+});
+
 require __DIR__.'/auth.php';
