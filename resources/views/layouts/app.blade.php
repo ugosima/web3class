@@ -11,7 +11,7 @@
         <title>{{ config('app.name', 'TOKENDEMY') }} | {{$title ?? ''}}</title>
         {{-- <link rel="icon" type="image/png" href="{{ asset('faviconx.png') }}"> --}}
 
-<link rel="icon" type="image/svg+xml" href="{{ asset('favicon.svg') }}?v=2">        
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">        
 <meta name="theme-color" content="#020617">
 
 
