@@ -9,7 +9,7 @@
                                     <iframe
                                         width="100%"
                                         height="360"
-                                        src="https://www.youtube.com/embed/{{ $material->lesson_video }}"
+                                        src="https://www.youtube.com/embed/{{ $id }}"
                                         title="YouTube video"
                                         frameborder="0"
                                         allowfullscreen
