@@ -74,7 +74,9 @@ class PractiseController extends Controller
             {
                     if ($incorrect_answer_scores > 0) {
                                 Auth::user()->increment('ads_to_play', $incorrect_answer_scores);
-                                Auth::user()->decrement('points', 100); // Deduct points for incorrect answers
+                                $user->update([
+                                    'points' => max(0, $user->points - 100),
+                                ]); // Deduct points for incorrect answers if the user has anything to deduct from
                     }
                     else {
                         // All correct answer logic
