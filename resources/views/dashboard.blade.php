@@ -372,24 +372,13 @@
                                 @php
                                     $component = 'lessonmaterials.' . $lessondir;
                                 @endphp
-
                                 <x-dynamic-component :component="$component" />
-
                             </div>
 
                             @if ($material->lesson_video && $material->lesson_video != '')
-                                <div class="w-full max-w-2xl mx-auto mt-8">
-                                    <p class="text-slate-400 font-semibold mb-4">Watch this for more understanding...</p>
-                                    <iframe
-                                        width="100%"
-                                        height="360"
-                                        src="https://www.youtube.com/embed/{{ $material->lesson_video }}"
-                                        title="YouTube video"
-                                        frameborder="0"
-                                        allowfullscreen
-                                        class="rounded-lg shadow-md">
-                                    </iframe>
-                                </div>
+                            <div class="w-full max-w-2xl mx-auto mt-8">
+                                <x-youtube id="{{ $material->lesson_video }}" />
+                            </div>
                             @endif
                     </div>
                 
