@@ -20,7 +20,7 @@ return Application::configure(basePath: dirname(__DIR__))
         ));
 
         if ($trustedProxies !== []) {
-            $middleware->trustProxies(at: $trustedProxies);
+                $middleware->trustProxies(at: '*');
         }
     })
     ->withExceptions(function (Exceptions $exceptions) {
