@@ -5,6 +5,7 @@ namespace App\Models;
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Support\Str;
 use Illuminate\Notifications\Notifiable;
 
 class User extends Authenticatable
@@ -34,6 +35,12 @@ class User extends Authenticatable
 {
     return $this->hasMany(User::class, 'referrer', 'referral_code');
 }
+
+    public function setEmailAttribute(?string $value): void
+    {
+        $this->attributes['email'] = $value === null ? null : Str::lower(trim($value));
+    }
+
     /**
      * The attributes that should be hidden for serialization.
      *

@@ -21,12 +21,29 @@ class AuthenticationTest extends TestCase
     {
         $user = User::factory()->create();
 
-        $response = $this->post('/login', [
+        $response = $this->withSession(['_token' => 'test-token'])->post('/login', [
             'email' => $user->email,
             'password' => 'password',
+            '_token' => 'test-token',
         ]);
 
         $this->assertAuthenticated();
+        $response->assertRedirect(route('dashboard', absolute: false));
+    }
+
+    public function test_users_can_authenticate_with_a_different_email_case(): void
+    {
+        $user = User::factory()->create([
+            'email' => 'student.user@example.com',
+        ]);
+
+        $response = $this->withSession(['_token' => 'test-token'])->post('/login', [
+            'email' => 'STUDENT.USER@EXAMPLE.COM',
+            'password' => 'password',
+            '_token' => 'test-token',
+        ]);
+
+        $this->assertAuthenticatedAs($user);
         $response->assertRedirect(route('dashboard', absolute: false));
     }
 
@@ -34,9 +51,10 @@ class AuthenticationTest extends TestCase
     {
         $user = User::factory()->create();
 
-        $this->post('/login', [
+        $this->withSession(['_token' => 'test-token'])->post('/login', [
             'email' => $user->email,
             'password' => 'wrong-password',
+            '_token' => 'test-token',
         ]);
 
         $this->assertGuest();
@@ -46,7 +64,9 @@ class AuthenticationTest extends TestCase
     {
         $user = User::factory()->create();
 
-        $response = $this->actingAs($user)->post('/logout');
+        $response = $this->actingAs($user)
+            ->withSession(['_token' => 'test-token'])
+            ->post('/logout', ['_token' => 'test-token']);
 
         $this->assertGuest();
         $response->assertRedirect('/');
