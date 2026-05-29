@@ -35,7 +35,7 @@ class SocialAuthController extends Controller
     public function handleGoogleCallback(): RedirectResponse
     {
         try {
-            $googleUser = Socialite::driver('google')->stateless()->user();
+            $googleUser = Socialite::driver('google')->user();
             $referralCode = session()->pull('google_referral_code');
 
             $user = DB::transaction(function () use ($googleUser, $referralCode) {

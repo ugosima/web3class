@@ -5,6 +5,7 @@ use Illuminate\Foundation\Configuration\Exceptions;
 use Illuminate\Foundation\Configuration\Middleware;
 use Illuminate\Http\Request;
 use Illuminate\Session\TokenMismatchException;
+use Symfony\Component\HttpKernel\Exception\HttpException;
 
 return Application::configure(basePath: dirname(__DIR__))
     ->withRouting(
@@ -13,22 +14,41 @@ return Application::configure(basePath: dirname(__DIR__))
         health: '/up',
     )
     ->withMiddleware(function (Middleware $middleware) {
-                $middleware->trustProxies(at: '*');
+        $trustedProxies = array_filter(array_map(
+            'trim',
+            explode(',', (string) env('TRUSTED_PROXIES', ''))
+        ));
+
+        if ($trustedProxies !== []) {
+            $middleware->trustProxies(at: $trustedProxies);
+        }
     })
     ->withExceptions(function (Exceptions $exceptions) {
         $exceptions->render(function (TokenMismatchException $e, Request $request) {
-            $message = 'Your session has expired. Please refresh the page and submit the form again.';
+            if ($request->expectsJson()) {
+                return response()->json([
+                    'success' => false,
+                    'reload' => true,
+                    'message' => 'Request expired: please reload and try again',
+                ], 419);
+            }
+
+            return redirect()->back();
+        });
+
+        $exceptions->render(function (HttpException $e, Request $request) {
+            if ($e->getStatusCode() !== 419) {
+                return null;
+            }
 
             if ($request->expectsJson()) {
                 return response()->json([
                     'success' => false,
-                    'message' => $message,
+                    'reload' => true,
+                    'message' => 'Request expired: please reload and try again',
                 ], 419);
             }
 
-            return redirect()
-                ->back()
-                ->withInput($request->except('_token', 'password', 'password_confirmation'))
-                ->with('error', $message);
+            return redirect()->back();
         });
     })->create();

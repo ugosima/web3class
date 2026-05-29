@@ -130,11 +130,10 @@
 
 
     <!-- Features Section -->
-    <section id="features" class="py-10 bg-white">
+    <section id="features" class="py-2 bg-white">
         <div class="max-w-7xl mx-auto px-6">
-            <div class="text-center mb-16">
+            <div class="text-center mb-10">
                 <h2 class="text-4xl md:text-3xl font-bold text-slate-900 mb-4">Why choose TOKENDEMY?</h2>
-                {{-- <div class="h-1 w-16 bg-emerald-500 mx-auto"></div> --}}
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -231,12 +230,11 @@
     
     {{-- Crypto news section  --}}
 
-    <section class="py-20 bg-gradient-to-b from-slate-50 to-white">
+    <section class="py-10 bg-gradient-to-b from-slate-50 to-white">
         <div class="max-w-7xl mx-auto px-6">
-            <div class="mb-12">
-                <h2 class="text-4xl md:text-5xl font-bold text-slate-900 mb-4">Latest Crypto News</h2>
+            <div class="mb-8">
+                <h2 class="text-4xl md:text-3xl font-bold text-slate-900 mb-4">Latest Crypto News</h2>
                 <p class="text-lg text-slate-600">Stay updated with the latest happenings in the crypto world</p>
-                <div class="h-1 w-16 bg-emerald-500 mt-6"></div>
             </div>
 
             <!-- News Grid -->
@@ -289,12 +287,11 @@
 
 
     <!-- Coming Soon Section -->
-    <section id="coming" class="py-20 bg-gradient-to-b from-slate-50 to-white">
+    <section id="coming" class="py-2 bg-gradient-to-b from-slate-50 to-white">
         <div class="max-w-7xl mx-auto px-6">
             <div class="text-center mb-16">
-                <h2 class="text-4xl md:text-5xl font-bold text-slate-900 mb-4">Coming Soon</h2>
+                <h2 class="text-4xl md:text-3xl font-bold text-slate-900">Coming Soon</h2>
                 <p class="text-lg text-slate-600 max-w-2xl mx-auto">Exciting features in development to supercharge your Web3 learning journey</p>
-                <div class="h-1 w-16 bg-emerald-500 mx-auto mt-6"></div>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -429,7 +426,7 @@
                             name="waitlist_email"
                             placeholder="your@email.com" 
                             required
-                            class="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/20 transition"
+                            class="w-full px-4 py-3 border text-slate-900 border-slate-300 rounded-lg focus:outline-none focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/20 transition"
                         >
                     </div>
                     <button 

@@ -656,7 +656,7 @@
                 <br> <br>
 
                     <p>
-                        This demo exposure is important to give you a view of the basic features of a wallet, so that the UI does not feel intimidating. You can download Metamask here <a class="text-indigo-500" href="https://metamask.io/" target="_blank">MetaMask website</a>, or app store on mobile devices, explore and learn more. 
+                        This demo exposure is important to give you a view of the basic features of a wallet, so that the UI does not feel intimidating. You can download Metamask here <a class="text-indigo-500" href="https://metamask.io/" target="_blank" rel="noopener noreferrer">MetaMask website</a>, or app store on mobile devices, explore and learn more. 
                     </p>
                     <br>
 

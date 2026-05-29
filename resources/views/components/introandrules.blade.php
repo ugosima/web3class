@@ -1,4 +1,4 @@
-<div class=" p-6 rounded-lg shadow-md bg-gray-800 text-gray-300 ">
+<div class=" p-6 rounded-lg shadow-md bg-gray-200 text-gray-900 ">
   <br><br>
     <p> <b>Dear Web3 Enthusiast,</b></p>
 <br>
@@ -25,8 +25,9 @@
     <li><b>&mdash;</b> &nbsp; Crypto trading </li>
     <li><b>&mdash;</b> &nbsp; Analysis </li>
      <li><b>&mdash;</b> &nbsp; Hands-on practice</li>
-      <li><b>&mdash;</b> &nbsp; Real-world use cases</li>
-      <li><b>&mdash;</b> &nbsp; Agentic interactions</li>
+      <li><b>&mdash;</b> &nbsp; Real-world applications</li>
+      <li><b>&mdash;</b> &nbsp; Trading as a business</li>
+      <li><b>&mdash;</b> &nbsp; Agentic AI workflow</li>
 
   </ul>
   <p>No prior Web3 experience <span class="font-semibold text-red-500">? . . .</span> &nbsp; No worries, we are starting from scratch.</p>
@@ -47,7 +48,7 @@
     <li>The more sessions you complete, the more your points value</li>
     <li>For every referral, you get a reward of 3TPV</li>
     <li>For every lession your referral completes, you get a reward of 5TPV.</li>
-    <li>Your referral points is limited to a maximum of 15000TPV; Once reached, your referrals completing their lessons would not add any reward to your TPV.</li>
+    <li>Your referral points is limited to a maximum of 15000TPV; Once reached, new referrals and your referrals completing their lessons would not add any reward to your TPV.</li>
     <li>Read and understand before attempting the questions, this positions you to answer them correctly, thereby maintaining your points.</li>
     <li>The more your <b>TPV</b>, the more future rewards you will get; the rewards can be used on our utility platforms.</li>
   </ol>

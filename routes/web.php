@@ -2,13 +2,11 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\PractiseController;
-use App\Http\Controllers\Auth\SocialAuthController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\WelcomeController;
 use App\Http\Controllers\DemoController;
 use App\Http\Controllers\LessonImageController;
-use Illuminate\Support\Facades\Storage;
 
 
 
@@ -46,18 +44,5 @@ Route::middleware('auth')->group(function () {
     Route::post('/joinwaitlist', [PractiseController::class,'waitlist'])
         ->middleware('throttle:3,1')
         ->name('joinwaitlist');
-
-
-
-        // routes/web.php - remove after debugging
-Route::get('/debug-image', function () {
-    $path = storage_path('app/private/lesson-images/image.jpeg');
-    return response()->json([
-        'cwd' => getcwd(),
-        'storage_path' => $path,
-        'exists' => file_exists($path),
-        'files' => scandir(storage_path('app/private/lesson-images/')),
-    ]);
-});
 
 require __DIR__.'/auth.php';

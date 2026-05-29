@@ -52,10 +52,16 @@ document.addEventListener('DOMContentLoaded', () => {
         })
         .then(async response => {
             const data = await response.json().catch(() => ({
-                message: 'Something went wrong. Please refresh the page and try again.'
+                message: response.status === 419
+                    ? 'Request expired: please reload and try again'
+                    : 'Something went wrong. Please refresh the page and try again.'
             }));
 
             if (!response.ok) {
+                if (response.status === 419) {
+                    data.message = data.message || 'Request expired: please reload and try again';
+                }
+
                 throw data;
             }
 
@@ -86,7 +92,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         })
         .catch(error => {
-            alert(error.message || 'Your session has expired. Please refresh the page and try again.');
+            alert(error.message || 'Request expired: please reload and try again');
             submitBtn.textContent = originalText;
             submitBtn.disabled = false;
             submitBtn.classList.remove('opacity-70', 'cursor-not-allowed');

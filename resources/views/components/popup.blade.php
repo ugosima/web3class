@@ -87,7 +87,10 @@
 
         if (message) {
             const msgEl = document.getElementById(id + "Message");
-            if (msgEl) msgEl.innerHTML = `<p class="mb-4">${message}</p>`;
+            if (msgEl) {
+                msgEl.textContent = message;
+                msgEl.classList.add("mb-4");
+            }
         }
 
         if (timeout > 0) {

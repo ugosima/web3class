@@ -205,7 +205,7 @@
                                     </div>
                                     <div>
                                         <h3 class="text-2xl font-black uppercase leading-tight text-white">
-                                            {{ is_null($material) ? 'Review Your Progress' : $material->material_title }}
+                                            {{ is_null($material) ? 'Getting Started' : $material->material_title }}
                                         </h3>
                                         <p class="mt-3 max-w-2xl text-sm leading-6 text-slate-300">
                                             Continue your Web3 learning path and complete the practice questions to unlock the next lesson.
@@ -632,11 +632,11 @@
                                 location.reload();
                                 };       
                            } else {
-                            showPopup('welcomePopup', `You answered ${data.score} out of 6 questions correctly! <br> <br> Watch ${6 - data.score} ads to continue!`);
+                            showPopup('welcomePopup', `You answered ${data.score} out of 6 questions correctly! Watch ${6 - data.score} ads to continue!`);
                             btn.innerHTML = 'Watch Ads';
                         }
                     } else if (xhr.status === 419) {
-                        let message = 'Your session has expired. Please refresh the page and submit the form again.';
+                        let message = 'Request expired: please reload and try again';
 
                         try {
                             message = JSON.parse(xhr.responseText || '{}').message || message;
