@@ -14,14 +14,8 @@ return Application::configure(basePath: dirname(__DIR__))
         health: '/up',
     )
     ->withMiddleware(function (Middleware $middleware) {
-        $trustedProxies = array_filter(array_map(
-            'trim',
-            explode(',', (string) env('TRUSTED_PROXIES', ''))
-        ));
-
-        if ($trustedProxies !== []) {
                 $middleware->trustProxies(at: '*');
-        }
+        
     })
     ->withExceptions(function (Exceptions $exceptions) {
         $exceptions->render(function (TokenMismatchException $e, Request $request) {
