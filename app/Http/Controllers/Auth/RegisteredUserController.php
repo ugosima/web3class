@@ -25,7 +25,7 @@ public function create($slug = null)
      $isValidReferral = null;
 
     if (!empty($slug)) {
-        $user = User::where('referral_code', $slug)->first();
+        $user = User::where('referral_code', strtoupper(trim($slug)))->first();
         $referralCode = $slug;
 
         if ($user) {
@@ -53,7 +53,7 @@ public function create($slug = null)
 {
     $request->validate([
         'name' => ['required', 'string', 'max:255'],
-        'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:' . User::class],
+        'email' => ['required', 'string', 'email', 'max:255', 'unique:' . User::class],
         'password' => ['required', 'confirmed', Rules\Password::defaults()],
         'referral_code' => ['nullable', 'string', 'max:20'],
     ]);
@@ -74,7 +74,7 @@ public function create($slug = null)
 
         $user = User::create([
             'name' => $request->name,
-            'email' => $request->email,
+            'email' =>  strtolower($request->email),
             'password' => Hash::make($request->password),
             'authcreatetype' => 'local',
             'referrer' => $referrer?->referral_code,

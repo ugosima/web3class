@@ -15,7 +15,7 @@
 <br>
 
   <b>3. Wallet</b>
-  <p>A wallet is a software or hardware tool used to store, send, and receive cryptocurrencies. It is similar to a bank account and contains your public and private keys, as well as your wallet address—all generated from your seed phrase.</p>
+  <p>A wallet is a software or hardware tool used to connect to the blockchain through dapps, it is also used to store, send, and receive cryptocurrencies. It is similar to a bank account and contains your public and private keys, as well as your wallet address—all generated from your seed phrase.</p>
   <ol class="list-[lower-roman] list-inside indent-4 pl-4">
     <li><strong>Hot Wallet:</strong> Connected to the internet, e.g., MetaMask, Trustwallet, Phantom, etc.</li>
     <li><strong>Cold Wallet:</strong> Offline and more secure, e.g., hardware wallets like Ledger, which are specialized devices for crypto transactions.</li>
@@ -86,7 +86,7 @@
 <br>
 
   <b>16. Tokenomics</b>
-    <p>Tokenomics, short for "Token Economics," refers to the economic model behind a token—how it is created, distributed, used, and maintained to establish and sustain its value.</p>
+    <p>Tokenomics, short for "Token Economics," refers to the economic model behind a token, i.e., how it is created, distributed, used, and maintained to establish and sustain its value.</p>
 <br>
 
 

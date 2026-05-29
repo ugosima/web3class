@@ -1,9 +1,9 @@
 
-<p> A token is a unit of value or rights represented and managed by a smart contract which defines rules for supply, balances, and transfers.  They are cryptocurrencies created by platforms that are building on a blockchain, and you can pay for the these platform's services using their tokens. Once deployed, the entire token supply is usually assigned to the creator’s wallet automatically.
-</p>
+<p> 
+    DEX listing is the process of making a token available for trading on a decentralized exchange (DEX). It involves a series of simple steps that makes it possible for a token to be bought, and sold by users on a DEX. 
 <br>
 <p>
-To understand the concept of token listing and their price, we need to understand the concept of liquidity and how it works in a decentralized exchange (Dex).
+To understand the concept of DEX listing and their price, we need to understand the concept of liquidity and how it works in a decentralized exchange (DEX).  
 </p>
 
 <p>      
@@ -12,12 +12,12 @@ Consider a company ABC that offers a service wants to create a token to sell its
 <br>
 
 <p> 
- Their platform users are to pay for their services using $ABC, however, $ABC is still in their possession and is not yet available to users (listed); To make it available to users, they take the tokens to a decentralized exchange (Dex) and ask them to make their token available for trading, the Dex will ask the company how much they want to sell each token, and because this process is automated with the help of smart contracts, the company will answer this question by creating a liquidity pool. This act doesn’t “give” the token value, it anchors it to something already valued.
+ Their platform users are to pay for their services using $ABC, however, $ABC is still in their possession and is not yet available to users (listed); To make it available to users, they take the tokens to a decentralized exchange (DEX) and ask them to make their token available for trading, the DEX will ask the company how much they want to sell each token, and because this process is automated with the help of smart contracts, the company will answer this question by creating a liquidity pool. This act doesn’t “give” the token value, it anchors it to something already valued.
 </p>
 <br>
 
 <p>
-A liquidity pool is an automated way of quoting the initial price of a token; Company ABC creates a liquidity pool by depositing a certain amount of their token ($ABC), and a proportionate amount of the base token of the Dex ($ETH,$USDT...depending on the blockchain) into the Dex. The price of $ABC is then determined by the ratio of $ABC to $ETH in the liquidity pool.
+A liquidity pool is an automated way of quoting the initial price of a token; Company ABC creates a liquidity pool by depositing a certain amount of their token ($ABC), and a proportionate amount of the base token of the DEX ($ETH,$USDT...depending on the blockchain) into the DEX. The price of $ABC is then determined by the ratio of $ABC to $ETH in the liquidity pool.
 
 <br><br>
 
@@ -27,7 +27,7 @@ Initial Price of $ABC = 10 $ETH / 1,000,000 $ABC = 0.00001 $ETH per token.
 </p>
 
 <p>
-Liquidity now becomes the foundation of the market. The pool holds both assets, and traders interact with it directly. The price is not fixed;  it will change as users buy and sell $ABC on the Dex. When a user buys $ABC, they will add $ETH to the pool and remove $ABC, which will increase the price of $ABC. Conversely, when a user sells $ABC, they will remove $ETH from the pool and add $ABC, which will decrease the price of $ABC. This dynamic pricing mechanism is what allows for price discovery in decentralized markets.
+Liquidity now becomes the foundation of the market. The pool holds both assets, and traders interact with it directly. The price is not fixed;  it will change as users buy and sell $ABC on the DEX. When a user buys $ABC, they will add $ETH to the pool and remove $ABC, which will increase the price of $ABC. Conversely, when a user sells $ABC, they will remove $ETH from the pool and add $ABC, which will decrease the price of $ABC. This dynamic pricing mechanism is what allows for price discovery in decentralized markets.
 
 <br><br>
 <b>Example:</b>
@@ -45,7 +45,7 @@ If another user sells 50,000 $ABC, the pool will now contain(900000 + 50,000) = 
 </p>
 
 <p>
-Buying and selling $ABC on the Dex will continue to adjust the amount of $ABC and $ETH in the pool, which in turn continues to influence the price. The more users buy $ABC, the higher its price will go, and the more users sell $ABC, the lower its price will go. This is how liquidity and trading activity influence the price of a token. This is why utility is  the standard driving factor for a token's price behaviour, if the platform's services are valuable and in demand, the token will be in demand, and its price will reflect that demand through the liquidity pool mechanism.
+Buying and selling $ABC on the DEX will continue to adjust the amount of $ABC and $ETH in the pool, which in turn continues to influence the price. The more users buy $ABC, the higher its price will go, and the more users sell $ABC, the lower its price will go. This is how liquidity and trading activity influence the price of a token. This is why utility is  the standard driving factor for a token's price behaviour, if the platform's services are valuable and in demand, the token will be in demand, and its price will reflect that demand through the liquidity pool mechanism.
 <br>
 Utility creates demand, demand creates trading activity, and trading activity influences price through the liquidity pool.
 </p>

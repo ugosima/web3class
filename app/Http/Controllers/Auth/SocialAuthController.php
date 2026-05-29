@@ -39,7 +39,7 @@ class SocialAuthController extends Controller
             $referralCode = session()->pull('google_referral_code');
 
             $user = DB::transaction(function () use ($googleUser, $referralCode) {
-                $existingUser = User::where('email', $googleUser->getEmail())->first();
+                $existingUser = User::where('email', strtolower($googleUser->getEmail()))->first();
 
                 if ($existingUser) {
                     return $existingUser;
@@ -51,7 +51,7 @@ class SocialAuthController extends Controller
 
                 $user = User::create([
                     'name' => $googleUser->getName(),
-                    'email' => $googleUser->getEmail(),
+                    'email' => strtolower($googleUser->getEmail()),
                     'authcreatetype' => 'google',
                     'password' => bcrypt(str()->random(16)),
                     'referrer' => $referrer?->referral_code,

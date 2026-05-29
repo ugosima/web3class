@@ -6,7 +6,7 @@
   <br>
   
   <p>
-   Essentially, a blockchain is a network of computers (nodes) linked together to store data in a tamper-proof manner. Unlike traditional databases controlled by a single entity (like a bank or company), a blockchain is <em>decentralized</em>, meaning it's shared across many computers or nodes. Each entry in this ledger is called a <strong>block</strong>, and these blocks are linked or "chained" together in chronological order, which is why it's called a blockchain.</p>
+   Essentially, a blockchain is a network of computers (nodes) linked together to store data in a tamper-proof manner. Unlike traditional databases controlled by a single entity (like a bank or company), a blockchain is <em>decentralized</em>, meaning it is shared across many computers or nodes. Each entry in this ledger is called a <strong>block</strong>, and these blocks are linked or "chained" together in chronological order, which is why it's called a blockchain.</p>
 <br>
 <x-imageviewer
     filename="lesson-2-blockchain-image.jpeg"
@@ -15,16 +15,26 @@
 <br><br>
 
  <h2 class="font-bold text-2xl">How a blockchain works</h2>
+ <p>
+  After a Blockchain (group of computers combined digitally as a collectively shared memory that saves data immutably) is developed; To store data on it, the following steps will occur :
+ </p>
 
 <ol class="space-y-3 list-dash list-inside">
+
     <li>
-        <b>A transaction is created:</b> 
-        A user starts an action, such as sending cryptocurrency or saving information on the network, by using a wallet app that securely signs the request to prove it is genuine.
+      <b>A user initiates a connection to the blockchain:</b>
+      The user connects to the blockchain network using a software application, such as a cryptocurrency wallet or a decentralized app (dApp), which allows them to interact with the blockchain. This wallet serves as their identity and key card.
     </li>
 
     <li>
+        <b>A transaction is created:</b> 
+        A user starts an action such as saving data (e.g., sending a message,saving a unique record), or  editing data (e.g.,sending cryptocurrency to another user) on the blockchain, which generates a transaction. This transaction contains details like the sender's address, recipient's address, amount (if applicable), and any additional data. 
+    </li>
+
+
+    <li>
         <strong>The transaction is checked:</strong> 
-        A network of computers, often called nodes, reviews the transaction by verifying the sender’s details and ensuring everything follows the network’s rules.
+        A network of computers, often called nodes, each independently reviews the transaction by verifying the sender’s details, checking if he is authorised for the action he requested,and ensuring everything follows the network’s rules. The transaction is only accepted if all nodes agree that it is valid, ensuring the integrity and security of the blockchain.
     </li>
 
     <li>
@@ -80,6 +90,9 @@
 
 <br>
   <h2 class="font-bold text-2xl ">Key features of Blockchain</h2>
+  <p>
+    As technical as it may sound, a blockchain is built on a few fundamental principles that make it unique and defines its functionality. These key features include:
+  </p>
 
   <ol class="list-decimal list-inside space-y-3 ">
     <li><strong>Decentralization:</strong> No single authority controls the blockchain. All participants have access to the same information.</li>
@@ -94,8 +107,8 @@
   <h2 class="font-bold text-2xl ">Advantages of Blockchain</h2>
 
   <ol class="list-inside list-decimal space-y-3 ">
-    <li>Reduces fraud and corruption through immutability and transparency</li>
-    <li>Improves efficiency and speed of transactions with 24/7 operation</li>
+    <li>Because it records information that can not be altered deceptively, it reduces fraud and corruption through immutability and transparency.</li>
+    <li>It improves efficiency and speed of transactions with 24/7 operation</li>
     <li>Lowers operational costs by eliminating intermediaries and third-party fees</li>
     <li>Empowers users with complete control over their own data and assets</li>
   </ol>

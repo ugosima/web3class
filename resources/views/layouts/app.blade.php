@@ -10,8 +10,10 @@
         {{$metatags ?? ''}}
         <title>{{ config('app.name', 'TOKENDEMY') }} | {{$title ?? ''}}</title>
         {{-- <link rel="icon" type="image/png" href="{{ asset('faviconx.png') }}"> --}}
-        <link rel="icon" href="{{ asset('favicon.svg') }}" type="image/svg+xml">
 
+<link rel="icon" href="/favicon.svg" type="image/x-icon">
+        
+<meta name="theme-color" content="#020617">
 
 
         <!-- Fonts -->
