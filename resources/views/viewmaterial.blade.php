@@ -88,25 +88,37 @@
 
 
                 <div class="p-2 dark:bg-blue-300 dark:text-black">
-                    <h2 class="text-xl"> LESSON {{$view_id}} : &nbsp; <span class="uppercase"> {{ $material->material_title }} </span></h2>
+                    <h3 class="text-xl font-semibold mb-2"> LESSON {{$view_id}} : &nbsp; <span class="uppercase"> {{ $material->material_title }} </span></h3>
                 </div>   
 
 
 
-                <div class="p-6 dark:bg-gray-900 dark:text-gray-400">
-                        @php
-                            $component = 'lessonmaterials.' . $lessondir;
-                        @endphp
+                <div id="material-reading-theme" class="dark"> 
+                    <div class="pl-2 md:pl-6 pr-1 pt-4 py-2 rounded-2xl shadow-lg mt-6 bg-gray-900       dark:bg-white">
+                        <div class="flex justify-end">
+                            {{-- button to toggle reading background --}}
+                            <x-togglebutton />
+                        </div>
 
-                        <x-dynamic-component :component="$component" />
+                        <div id="materialviewbox" class=" max-w-none mb-8 text-slate-300 dark:text-gray-800 leading-relaxed">
+                                {{-- {!! $material->material !!} --}}
+                                @php
+                                    $component = 'lessonmaterials.' . $lessondir;
+                                @endphp
+                                <x-dynamic-component :component="$component" />
+                            </div>
 
-                     <br>
-                   
+                             @if ($material->lesson_video && $material->lesson_video != '')
+                            <div class="w-full max-w-2xl mx-auto mt-8">
+                                <x-youtube id="{{ $material->lesson_video }}" />
+                            </div>
+                            @endif
 
-                     
+                    </div>
 
-                       
+                </div>
 
+                <div id="material-reading-theme" class="dark pl-2 bg-gray-900 text-gray-300"> 
                     
                      <div class="flex justify-between mt-4">
                         {{-- Previous and Next buttons --}}
@@ -148,6 +160,8 @@
         </div>
 
     </div>
+
+        @vite('resources/js/toggledark.js')
 
 
 </x-app-layout>

@@ -149,7 +149,7 @@ class PractiseController extends Controller
         $view_id = (abs((int)$id) + (int)$id) / 2; // Convert to integer and take absolute value
         if ( $view_id <= $user->lesson_progress)
         { 
-            $material = DB::table('questions_and_answers')->where('learning_cycle', $id)->select( 'material_title')->first();
+            $material = DB::table('questions_and_answers')->where('learning_cycle', $id)->select( 'material_title', 'lesson_video')->first();
             $material_titles = DB::table('questions_and_answers')
                             ->whereNotNull('material_title')
                             ->whereRaw("TRIM(material_title) != ''")
