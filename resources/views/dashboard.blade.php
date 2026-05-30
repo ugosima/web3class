@@ -335,9 +335,6 @@
         @if ($user->lesson_progress == 0)
             <div class="p-2 rounded-2xl bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 shadow-lg mt-6 text-white border border-emerald-500/30">
                 <div class="mb-4">
-                    <div class="inline-block bg-emerald-500/20 border border-emerald-400/40 rounded-full px-4 py-2 mb-6">
-                        <span class="text-emerald-300 text-sm font-semibold">Welcome to Web3 Learning</span>
-                    </div>
                     <h2 class="text-3xl font-bold mb-4">Welcome to Web3 for <span class="text-emerald-400">Crypto Class</span></h2>
                 </div>
 
