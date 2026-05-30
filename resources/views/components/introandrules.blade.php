@@ -63,9 +63,15 @@
     You are on a journey to understand the future of finance and technology. Embrace the learning process; The Web3 world is vast and full of opportunities, and we are here to guide you every step of the way.
     <strong>Welcome aboard</strong>.
   </p>
+  <br><br>
+
+  <hr>
+  <br><br>
+
+
 </div>
 
-<div class="flex justify-center items-center h-64 bg-gray-800 text-gray-400 rounded-lg shadow-md">
+<div class="flex justify-center items-center h-64 bg-gray-200 text-gray-400 rounded-lg shadow-md">
      
   <form method="POST" action="{{ route('startclass') }}">
     @csrf
