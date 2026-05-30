@@ -9,6 +9,8 @@ export default defineConfig({
                 'resources/css/app.css',
                 'resources/js/app.js',
                 'resources/js/waitlist.js',
+                'resources/js/toggledark.js',
+
             ],
             refresh: true,
         }),
