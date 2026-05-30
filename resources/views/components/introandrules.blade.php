@@ -1,4 +1,4 @@
-<div class=" p-6 rounded-lg shadow-md bg-gray-200 text-gray-900 ">
+<div class=" pl-2 rounded-lg shadow-md bg-gray-200 text-gray-900 ">
   <br><br>
     <p> <b>Dear Web3 Enthusiast,</b></p>
 <br>
@@ -38,8 +38,9 @@
 <br>
   <h3><b> RULES OF ENGAGEMENT</b></h3>
   <br>
+     <b class=" text-red-600">* * *</b>
   <ol class="space-y-4 list-decimal list-inside indent-4">
-    <li> <b class=" text-red-600">* *</b> You are expected to study the lesson materials and understand it thoroughly before attempting the practise questions.</li>
+    <li> You are expected to study the lesson materials and understand it thoroughly before attempting the practise questions.</li>
     <li> Each wrong answer equals one marketting ad.</li>
     <li> You will not be able to move to the next lesson till you have watched all ads, we think the fear of watching ads should make you read thoroughly and not fail the questions.</li>
     <li>10000 points is initialised to you and every other user.</li>
