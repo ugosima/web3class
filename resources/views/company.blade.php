@@ -83,7 +83,7 @@
                         </p>
                         <div class="rounded-xl border border-emerald-300/20 bg-emerald-400/10 p-5">
                             <p class="font-bold text-white">If you need assistance, reach us through:</p>
-                            <p class="mt-2 text-emerald-200"><strong>Email:</strong> support@tokendemy.com</p>
+                            <p class="mt-2 text-emerald-200"><strong>Email:</strong> support@tokendemy.io</p>
                             <p class="mt-3 text-sm text-slate-400">Our typical response time is <strong class="text-slate-200">24 - 48 hours</strong> during working days.</p>
                         </div>
                     @endif
@@ -96,7 +96,7 @@
                             <li><strong class="text-white">Tech stack:</strong> Laravel, Tailwind CSS, Alpine.js, MySQL, API integrations</li>
                             <li><strong class="text-white">Roadmap:</strong> mobile apps, on-chain learning modules, and practical Web3 tools</li>
                         </ul>
-                        <p>Developers interested in contributing can reach us at <strong class="text-emerald-300">dev@tokendemy.com</strong>.</p>
+                        <p>Developers interested in contributing can reach us at <strong class="text-emerald-300">support@tokendemy.io</strong>.</p>
                     @endif
 
                     @if($slug === 'engagement_rules')
