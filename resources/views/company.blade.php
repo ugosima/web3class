@@ -16,16 +16,11 @@
         $pageTitle = $pageTitles[$slug] ?? 'Company';
     @endphp
 
-    <main class="min-h-screen bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950 px-4 py-10 text-slate-300 sm:px-6">
+    <main class="min-h-screen bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950 px-4 py-10 text-slate-300">
         <div class="mx-auto max-w-4xl">
             <div class="mb-6 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-                <a href="{{ route('welcome') }}" class="inline-flex items-center gap-3">
-                    <x-application-logo class="h-11 w-11 fill-current text-emerald-400" />
-                    <span class="text-2xl font-black text-white">TOKEN<span class="text-emerald-400">DEMY</span></span>
-                </a>
-
                 @auth
-                    <a href="{{ route('dashboard') }}" class="inline-flex items-center justify-center gap-2 rounded-lg border border-emerald-300/30 bg-emerald-400/10 px-4 py-2 text-sm font-bold uppercase text-emerald-300 transition hover:bg-emerald-400 hover:text-slate-950">
+                    <a href="{{ route('dashboard') }}" class="inline-flex items-center justify-center gap-2 rounded-lg border border-emerald-300/30 bg-emerald-400/10 py-2 text-sm font-bold uppercase text-emerald-300 transition hover:bg-emerald-400 hover:text-slate-950">
                         <i class="fa-solid fa-arrow-left"></i>
                         Dashboard
                     </a>
@@ -38,7 +33,7 @@
                     <h1 class="mt-2 text-3xl font-black text-white sm:text-4xl">{{ $pageTitle }}</h1>
                 </div>
 
-                <div class="space-y-5 px-6 py-8 leading-7 sm:px-8">
+                <div class="space-y-5 py-8 leading-7 sm:px-8">
                     @if($slug === 'about')
                         <p>
                             Tokendemy is a hybrid educational and practical platform designed to simplify blockchain and cryptocurrency learning, integration, trading, and use for everyone.
@@ -105,9 +100,7 @@
                     @endif
 
                     @if($slug === 'engagement_rules')
-                        <div class="rounded-xl border border-white/10 bg-slate-950/40 p-5">
                             <x-introandrules />
-                        </div>
                     @endif
 
                     @if($slug === 'glossary')
