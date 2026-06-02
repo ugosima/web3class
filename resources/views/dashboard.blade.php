@@ -1,9 +1,13 @@
 <x-app-layout>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    @push('head')
+        <link rel="stylesheet" href="{{ asset('css/materialaid.css') }}">
+        <script
+  src="https://cdn.applixir.com/applixir.app.v6.1.0.js"
+></script>
+
+    @endpush
     
     <x-slot name="title">DASHBOARD</x-slot>
-
-    <link rel="stylesheet" href="{{ asset('css/materialaid.css') }}">
 
     @php
         $name = explode(' ', $user->name);
@@ -660,22 +664,20 @@
                             console.log("Error: ", error.getError().data);
                             },
                         };
-
-                        var application = new Application(options);
+                         var application = new Application(options);
                         window.onload = () => { // Important: Initialize on window load!!! (or use timeout)
                             application.initialize();
                             
                         };
-
-
-
        
     </script>
 
 
-     <script type="text/javascript" src="https://cdn.applixir.com/applixir.app.v6.1.0.js"></script>
 
+    <script>
+        
 
+    </script>
 
 
 

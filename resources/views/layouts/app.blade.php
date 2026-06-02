@@ -29,6 +29,7 @@
         <!-- Scripts -->
             <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
         @vite(['resources/css/app.css', 'resources/js/app.js'])
+        @stack('head')
     </head>
    <body class="font-[Inter] text-gray-200 leading-relaxed flex flex-col min-h-screen bg-gray-900">
         <div class="flex flex-col min-h-screen bg-gray-900">
