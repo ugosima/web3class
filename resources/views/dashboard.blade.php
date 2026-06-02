@@ -1,8 +1,6 @@
 <x-app-layout>
     @push('head')
         <link rel="stylesheet" href="{{ asset('css/materialaid.css') }}">
-        
-
     @endpush
     
     <x-slot name="title">DASHBOARD</x-slot>
@@ -388,7 +386,6 @@
                  <div id="adsbox" class="rounded-lg border border-white/10 bg-slate-950/60 p-4 mb-8">
 
                  </div>
-                 <script src="https://cdn.applixir.com/applixir.app.v6.1.0.js"></script>
         
                 <h2 class="text-2xl font-bold text-gray-200 dark:text-red-500  mb-4">PRACTICE QUESTIONS</h2>
                 <p class="text-slate-400 dark:text-slate-700 font-medium mb-4">Answer all questions correctly to progress to the next lesson.</p>
@@ -649,36 +646,8 @@
 
 
 ////////Ads codeblock
-
-
-
-
-                            const options = {
-                            apiKey: "44e9c330-c5d0-4dae-8a76-dbe3982879a5", // Replace with your actual API key
-                            injectionElementId: "adsbox", // This is the ID of the div from step 2.
-                            adStatusCallbackFn: (status) => { // This is how you can listen for ad statuses (more in Step 4)
-                            console.log("OUTSIDE Ad status: ", status);
-                            },
-                            adErrorCallbackFn: (error) => { // This is how you can listen for errors (more in Step 4)
-                            console.log("Error: ", error.getError().data);
-                            },
-                        };
-                         var application = new Application(options);
-                        window.onload = () => { // Important: Initialize on window load!!! (or use timeout)
-                            application.initialize();
-                            
-                        };
        
     </script>
-
-
-
-    <script>
-        
-
-    </script>
-
-
 
 
         @vite('resources/js/toggledark.js')
