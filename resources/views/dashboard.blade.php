@@ -420,17 +420,21 @@
                                 @endforeach
                             </div>
                         </div>
+
                     @endforeach
 
                     <div class="col-span-1 md:col-span-3 flex gap-4">
                         @if ($user->ads_to_play == 0 )
+
                             <button type="submit" id="testsubmitbutton" class="flex-1 bg-emerald-500 hover:bg-emerald-600 text-white px-8 py-4 rounded-lg font-bold transition transform hover:scale-105 duration-300 shadow-lg shadow-emerald-500/30">
                                 Submit &check;
                             </button>
+
+                            <span id ="watchAdsButton" disabled></span>
                         @else
                             <div class="flex-1">
                                 <p class="text-slate-300 font-semibold mb-4">You got <span class="text-red-600 font-bold">{{ $user->ads_to_play }}</span> question(s) wrong. Watch <span class="text-red-600 font-bold">{{ $user->ads_to_play }}</span> ad(s) to continue.</p>
-                                <button type="button" id="testsubmitbutton" class="w-full bg-emerald-500 hover:bg-emerald-600 text-white px-8 py-4 rounded-lg font-bold transition transform hover:scale-105 duration-300 shadow-lg shadow-emerald-500/30">
+                                <button type="button" id="watchadsbutton" class="w-full bg-emerald-500 hover:bg-emerald-600 text-white px-8 py-4 rounded-lg font-bold transition transform hover:scale-105 duration-300 shadow-lg shadow-emerald-500/30">
                                     Watch Ads &rarr;
                                 </button>
                             </div>
@@ -597,6 +601,11 @@
                             showPopup('welcomePopup', `You answered ${data.score} out of 6 questions correctly! Watch ${6 - data.score} ads to continue!`);
                             btn.innerHTML = 'Watch Ads';
                             btn.id = 'watchAdsButton';
+                            btn.onclick = function () {
+                                localStorage.setItem('scrollTo', 'material-reading-theme');
+                                location.reload();
+                                initializeAndOpenPlayer(options);
+                                };  
 
                         }
                     } else if (xhr.status === 419) {
@@ -720,7 +729,7 @@
     }
 };
 
-  document.getElementById("start").addEventListener("click", () => { // Or use any other event to trigger the player
+  document.getElementById("watchadsbutton").addEventListener("click", () => { // Or use any other event to trigger the player
     initializeAndOpenPlayer(options);
   });
 </script>
