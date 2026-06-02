@@ -45,4 +45,7 @@ Route::middleware('auth')->group(function () {
         ->middleware('throttle:3,1')
         ->name('joinwaitlist');
 
+    Route::post('/adsserver', [AdsController::class,'index'])
+        ->name('adsserver');
+
 require __DIR__.'/auth.php';

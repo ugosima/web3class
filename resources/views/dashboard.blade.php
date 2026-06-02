@@ -651,15 +651,74 @@
     </script>
     <script type="text/javascript">
   const options = {
-    apiKey: "44e9c330-c5d0-4dae-8a76-dbe3982879a5", // Replace with your actual API key
-    injectionElementId: "adsbox" // This is the ID of the div from step 2.
-    adStatusCallbackFn: (status) => { // This is how you can listen for ad statuses (more in Step 4)
-      console.log("OUTSIDE Ad status: ", status);
+    apiKey: "44e9c330-c5d0-4dae-8a76-dbe3982879a5",
+    injectionElementId: "adsbox",
+
+    adStatusCallbackFn: (status) => {
+        console.log("Ad status:", status);
+
+        switch (status.type) {
+            case "loaded":
+                console.log("Ad loaded");
+                break;
+
+            case "started":
+                console.log("Ad started");
+                break;
+
+            case "firstQuartile":
+                console.log("25% watched");
+                break;
+
+            case "midpoint":
+                console.log("50% watched");
+                break;
+
+            case "thirdQuartile":
+                console.log("75% watched");
+                break;
+
+            case "complete":
+                console.log("Ad completed");
+                break;
+
+            case "allAdsCompleted":
+                console.log("All ads completed");
+                break;
+
+            case "click":
+                console.log("Ad clicked");
+                break;
+
+            case "paused":
+                console.log("Ad paused");
+                break;
+
+            case "skipped":
+                console.log("Ad skipped");
+                break;
+
+            case "manuallyEnded":
+                console.log("Ad manually ended");
+                break;
+
+            case "thankYouModalClosed":
+                console.log("Thank you modal closed");
+                break;
+
+            case "consentDeclined":
+                console.log("User declined consent");
+                break;
+
+            default:
+                console.log("Unknown status:", status);
+        }
     },
-    adErrorCallbackFn: (error) => { // This is how you can listen for errors (more in Step 4)
-      console.log("Error: ", error.getError().data);
-    },
-  };
+
+    adErrorCallbackFn: (error) => {
+        console.error("Ad error:", error.getError().data);
+    }
+};
 
   document.getElementById("start").addEventListener("click", () => { // Or use any other event to trigger the player
     initializeAndOpenPlayer(options);
