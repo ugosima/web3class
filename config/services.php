@@ -46,5 +46,8 @@ return [
         'demo_url' => env('COINGECKO_DEMO_URL', 'https://api.coingecko.com/api/v3'),
     ],
 
-
+    'applixir' => [
+        'api_key' => env('APPLIXIR_API_KEY'),
+        'secret' => env('APPLIXIR_SECRET'),
+    ],
 ];

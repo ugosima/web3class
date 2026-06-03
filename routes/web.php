@@ -7,6 +7,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\WelcomeController;
 use App\Http\Controllers\DemoController;
 use App\Http\Controllers\LessonImageController;
+use App\Http\Controllers\AdsController;
 
 
 
@@ -45,7 +46,7 @@ Route::middleware('auth')->group(function () {
         ->middleware('throttle:3,1')
         ->name('joinwaitlist');
 
-    Route::post('/adsserver', [AdsController::class,'index'])
-        ->name('adsserver');
+    Route::post('/adsserver', AdsController::class)
+    ->name('adsserver');
 
 require __DIR__.'/auth.php';

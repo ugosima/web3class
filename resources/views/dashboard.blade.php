@@ -661,8 +661,9 @@
     <script type="text/javascript">
   const options = {
     apiKey: "44e9c330-c5d0-4dae-8a76-dbe3982879a5",
-    injectionElementId: "adsbox",
 
+    injectionElementId: "adsbox",
+    userId: @json($user->id), // Optional: Pass a unique identifier for the user to target ads more effectively
     adStatusCallbackFn: (status) => {
         console.log("Ad status:", status);
 
