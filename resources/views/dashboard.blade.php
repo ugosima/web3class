@@ -660,9 +660,10 @@
     </script>
     <script type="text/javascript">
   const options = {
-    apiKey: "44e9c330-c5d0-4dae-8a76-dbe3982879a5",
-
-    injectionElementId: "adsbox",
+        apiKey: "44e9c330-c5d0-4dae-8a76-dbe3982879a5",
+        injectionElementId: "adsbox",
+        customData: { userId: @json($user->id)},
+        
     adStatusCallbackFn: (status) => {
         console.log("Ad status:", status);
 

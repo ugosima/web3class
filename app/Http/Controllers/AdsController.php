@@ -32,11 +32,11 @@ class AdsController extends Controller
             $secret = config('services.applixir.secret');
 
             // TODO: Replace with AppLixir's actual HMAC algorithm
-            // $expectedSignature = hash_hmac(
-            //     'sha256',
-            //     $payload,
-            //     $secret
-            // );
+            $expectedSignature = hash_hmac(
+                'sha256',
+                $payload,
+                $secret
+            );
 
             if (
                 empty($receivedSignature)
