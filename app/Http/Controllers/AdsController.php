@@ -25,17 +25,18 @@ class AdsController extends Controller
             $payload = $request->getContent();
 
             // TODO: Replace with AppLixir's actual signature header name
-            $receivedSignature = $request->header('X-APPLIXIR-SIGNATURE');
+            $receivedkey = $request->header('secretKey');
+
 
             // TODO: Store in config/services.php
             $secret = config('services.applixir.secret');
 
             // TODO: Replace with AppLixir's actual HMAC algorithm
-            $expectedSignature = hash_hmac(
-                'sha256',
-                $payload,
-                $secret
-            );
+            // $expectedSignature = hash_hmac(
+            //     'sha256',
+            //     $payload,
+            //     $secret
+            // );
 
             if (
                 empty($receivedSignature)
