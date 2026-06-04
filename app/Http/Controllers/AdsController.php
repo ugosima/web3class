@@ -83,9 +83,7 @@ class AdsController extends Controller
 
             $impressionId = $data['impressionId'] ?? null;
 
-            $userId = $data['userId'] ?? null;
-
-            $lessonId = $data['customData']['lessonId'] ?? null;
+            $userId = $data['customData']['userId'] ?? null;
 
             if (
                 empty($impressionId)

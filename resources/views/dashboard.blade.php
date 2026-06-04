@@ -1,6 +1,10 @@
 <x-app-layout>
     @push('head')
         <link rel="stylesheet" href="{{ asset('css/materialaid.css') }}">
+                
+        <script>
+                (function(s){s.dataset.zone='11097799',s.src='https://n6wxm.com/vignette.min.js'})([document.documentElement, document.body].filter(Boolean).pop().appendChild(document.createElement('script')))
+        </script>
     @endpush
     
     <x-slot name="title">DASHBOARD</x-slot>
@@ -659,11 +663,14 @@
        
     </script>
     <script type="text/javascript">
+
+
+
   const options = {
         apiKey: "44e9c330-c5d0-4dae-8a76-dbe3982879a5",
         injectionElementId: "adsbox",
         customData: { userId: @json($user->id)},
-        
+
     adStatusCallbackFn: (status) => {
         console.log("Ad status:", status);
 
@@ -734,6 +741,7 @@
     initializeAndOpenPlayer(options);
   });
 </script>
+
 
 
         @vite('resources/js/toggledark.js')
