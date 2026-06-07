@@ -52,6 +52,14 @@
     <li>Your referral points is limited to a maximum of 15000TPV; Once reached, new referrals and your referrals completing their lessons would not add any reward to your TPV.</li>
     <li>Read and understand before attempting the questions, this positions you to answer them correctly, thereby maintaining your points.</li>
     <li>The more your <b>TPV</b>, the more future rewards you will get; the rewards can be used on our utility platforms.</li>
+
+      <li><b>Like us on facebook:</b><a href="https://web.facebook.com/profile.php?id=100075685667021" target="_blank" class="text-blue-600 hover:text-gray-500"><i class="fa-brands fa-facebook text-lg "></i> &nbsp; <b>Facebook</b></a></li>
+     <li> <b>Follow us on LinkedIn:</b><a href="https://www.linkedin.com/company/tokendemy" target="_blank" class="text-blue-800 hover:text-emerald-400"><i class="fa-brands fa-linkedin text-lg"></i>&nbsp; <b>LinkedIn</b></a></li>
+
+    <li><b>Follow us on Twitter:</b><a href="https://twitter.com/tokendemy" target="_blank" class="text-gray-800 hover:text-green-700"><i class="fa-brands fa-twitter text-lg"></i>&nbsp; <b>Twitter</b></a></li>
+                 
+
+
   </ol>
   <br><br>
 
