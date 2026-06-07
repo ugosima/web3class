@@ -471,7 +471,9 @@
             }
 
             if (navigator.clipboard) {
-                navigator.clipboard.writeText(link);
+                navigator.clipboard.writeText(link)
+                    .then(() => showPopup('welcomePopup', 'Link copied'))
+                    .catch(() => showPopup('welcomePopup', 'Unable to copy link'));
                 return;
             }
 
@@ -481,6 +483,7 @@
             input.select();
             document.execCommand('copy');
             input.remove();
+            showPopup('welcomePopup', 'Link copied');
         }
 
         function openReferralModal() {
