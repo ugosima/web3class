@@ -42,7 +42,7 @@
   <ol class="space-y-4 list-decimal list-inside indent-4">
     <li> You are expected to study the lesson materials and understand it thoroughly before attempting the practise questions.</li>
     <li> Each wrong answer equals one marketting ad.</li>
-    <li> You will not be able to move to the next lesson till you have watched all ads, we think the fear of watching ads should make you read thoroughly and not fail the questions.</li>
+    <li> You will not be able to move to the next lesson till you have watched all ads.</li>
     <li>10000 points is initialised to you and every other user.</li>
     <li>Every failed session results to a deduction of 100 points, regardless of number of failed questions. </li>
     <li>Total points value (<b>TPV</b>) is calculated as (<b>TPV</b>) = (progress/total number of lessons available) * Points.</li>

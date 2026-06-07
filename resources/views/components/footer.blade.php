@@ -50,9 +50,9 @@
                 <div>
                     <h4 class="text-white font-bold mb-6">Follow Us</h4>
                     <ul class="space-y-3">
-                        <li><a href="https://web.facebook.com/profile.php?id=100075685667021" class="text-slate-400 hover:text-emerald-400 transition flex items-center gap-2"><i class="fa-brands fa-facebook text-lg"></i> Facebook</a></li>
-                        <li><a href="https://www.linkedin.com/company/tokendemy" class="text-slate-400 hover:text-emerald-400 transition flex items-center gap-2"><i class="fa-brands fa-linkedin text-lg"></i> LinkedIn</a></li>
-                        <li><a href="https://twitter.com/tokendemy" class="text-slate-400 hover:text-emerald-400 transition flex items-center gap-2"><i class="fa-brands fa-twitter text-lg"></i> Twitter</a></li>
+                        <li><a href="https://web.facebook.com/profile.php?id=100075685667021" target="_blank" class="text-slate-400 hover:text-emerald-400 transition flex items-center gap-2"><i class="fa-brands fa-facebook text-lg"></i> Facebook</a></li>
+                        <li><a href="https://www.linkedin.com/company/tokendemy" target="_blank" class="text-slate-400 hover:text-emerald-400 transition flex items-center gap-2"><i class="fa-brands fa-linkedin text-lg"></i> LinkedIn</a></li>
+                        <li><a href="https://twitter.com/tokendemy" target="_blank" class="text-slate-400 hover:text-emerald-400 transition flex items-center gap-2"><i class="fa-brands fa-twitter text-lg"></i> Twitter</a></li>
                     </ul>
                 </div>
             </div>
@@ -60,7 +60,7 @@
             <!-- Divider -->
             <div class="border-t border-slate-700 pt-8">
                 <p class="text-center text-slate-500 text-sm">
-                    © Copyright 2025 <a rel="stylesheet" href="https://web.facebook.com/profile.php?id=100076196468977"><span class="text-emerald-400 font-semibold">Codebridge Developers</span></a>. All rights reserved.
+                    © Copyright 2025 <a rel="stylesheet" href="https://web.facebook.com/profile.php?id=100076196468977" target="_blank"><span class="text-emerald-400 font-semibold">Codebridge Developers</span></a>. All rights reserved.
                 </p>
             </div>
         </div>

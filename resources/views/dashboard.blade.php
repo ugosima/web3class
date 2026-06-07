@@ -434,9 +434,9 @@
                             <span id ="watchAdsButton" disabled></span>
                         @else
                             <div class="flex-1">
-                                <p class="text-slate-300 font-semibold mb-4">You got <span class="text-red-600 font-bold">{{ $user->ads_to_play }}</span> question(s) wrong. Watch <span class="text-red-600 font-bold">{{ $user->ads_to_play }}</span> ad(s) to continue.</p>
-                                <button type="button" id="watchadsbutton" class="w-full bg-emerald-500 hover:bg-emerald-600 text-white px-8 py-4 rounded-lg font-bold transition transform hover:scale-105 duration-300 shadow-lg shadow-emerald-500/30">
-                                    Watch Ads &rarr;
+                                <p id="adsWatchMessage" class="text-slate-300 font-semibold mb-4">You got <span id="adsWrongCount" class="text-red-600 font-bold">{{ $user->ads_to_play }}</span> question(s) wrong. Watch <span id="adsRemainingCount" class="text-red-600 font-bold">{{ $user->ads_to_play }}</span> ad(s) to continue.</p>
+                                <button type="button"  id="watchadsbutton" class="w-full bg-emerald-500 hover:bg-emerald-600 text-white px-8 py-4 rounded-lg font-bold transition transform hover:scale-105 duration-300 shadow-lg shadow-emerald-500/30">
+                                    Watch Ads ({{ $user->ads_to_play }} left) &rarr;
                                 </button>
                             </div>
                         @endif
@@ -600,12 +600,11 @@
                                 };       
                            } else {
                             showPopup('welcomePopup', `You answered ${data.score} out of 6 questions correctly! Watch ${6 - data.score} ads to continue!`);
-                            btn.innerHTML = 'Watch Ads';
-                            btn.id = 'watchAdsButton';
+                            btn.innerHTML = `Watch Ads (${6 - data.score} left) &rarr;`;
+                            btn.id = 'watchadsbutton';
                             btn.onclick = function () {
                                 localStorage.setItem('scrollTo', 'material-reading-theme');
-                                location.reload();
-                                initializeAndOpenPlayer(options);
+                                recordAdWatchAndOpen();
                                 };  
 
                         }
@@ -733,10 +732,106 @@
         console.error("Ad error:", error.getError().data);
     }
 };
+    // initializeAndOpenPlayer(options);
 
-  document.getElementById("watchadsbutton").addEventListener("click", () => { // Or use any other event to trigger the player
-    initializeAndOpenPlayer(options);
-  });
+  function setWatchAdsButtonAction(adsToPlay) {
+    const watchAdsButton = document.getElementById('watchadsbutton');
+    if (!watchAdsButton) {
+        return;
+    }
+
+    if (adsToPlay > 0) {
+        watchAdsButton.onclick = recordAdWatchAndOpen;
+    } else {
+        watchAdsButton.onclick = function () {
+            location.reload();
+        };
+    }
+  }
+
+  function initializeWatchAdsButton() {
+    const button = document.getElementById('watchadsbutton');
+    if (!button) {
+        return;
+    }
+
+    const countText = document.getElementById('adsWrongCount')?.textContent;
+    const numericCount = parseInt(countText, 10);
+    if (Number.isNaN(numericCount)) {
+        button.onclick = recordAdWatchAndOpen;
+    } else {
+        setWatchAdsButtonAction(numericCount);
+    }
+  }
+
+  function updateAdsWatchUi(adsToPlay) {
+    const normalizedAdsToPlay = Math.max(parseInt(adsToPlay, 10) || 0, 0);
+    const watchAdsButton = document.getElementById('watchadsbutton');
+    const adsWrongCount = document.getElementById('adsWrongCount');
+    const adsRemainingCount = document.getElementById('adsRemainingCount');
+    const adsWatchMessage = document.getElementById('adsWatchMessage');
+
+    if (adsWrongCount) {
+        adsWrongCount.innerHTML = normalizedAdsToPlay;
+    }
+
+    if (adsRemainingCount) {
+        adsRemainingCount.innerHTML = normalizedAdsToPlay;
+    }
+
+    if (adsWatchMessage) {
+        adsWatchMessage.innerHTML = normalizedAdsToPlay > 0
+            ? `You still need to watch <span id="adsRemainingCount" class="text-red-600 font-bold">${normalizedAdsToPlay}</span> ad(s) to continue.`
+            : 'All required ads watched. You can continue now.';
+    }
+
+    if (watchAdsButton) {
+        watchAdsButton.innerHTML = normalizedAdsToPlay > 0
+            ? `Watch Ads (${normalizedAdsToPlay} left) &rarr;`
+            : 'Continue &check;';
+    }
+
+    setWatchAdsButtonAction(normalizedAdsToPlay);
+  }
+
+  function recordAdWatchAndOpen() {
+    const token = document.querySelector('meta[name="csrf-token"]')?.getAttribute('content');
+
+    fetch(@json(route('adswatch')), {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'X-CSRF-TOKEN': token,
+            'X-Requested-With': 'XMLHttpRequest',
+        },
+        body: JSON.stringify({
+            action: 'button_clicked',
+            ts: Date.now(),
+        }),
+        keepalive: true,
+    })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`Ads watch request failed with status ${response.status}`);
+            }
+
+            return response.json();
+        })
+        .then(data => {
+            if (data.success) {
+                updateAdsWatchUi(data.ads_to_play);
+            }
+
+            console.log('Watch Ads button clicked, ads updated:', data);
+        })
+        .catch(error => {
+            console.error('Unable to update ads_to_play:', error);
+        });
+
+    window.open('https://omg10.com/4/11111963', '_blank');
+  }
+
+  initializeWatchAdsButton();
 </script>
 
 

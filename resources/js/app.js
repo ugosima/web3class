@@ -2,10 +2,7 @@ import './bootstrap';
 
 import Alpine from 'alpinejs';
 
-import { toggleDark } from './toggledark.js';
-
-toggleDark();
-
+import './toggledark.js';
 
 window.Alpine = Alpine;
 

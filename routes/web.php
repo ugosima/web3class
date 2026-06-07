@@ -8,6 +8,7 @@ use App\Http\Controllers\WelcomeController;
 use App\Http\Controllers\DemoController;
 use App\Http\Controllers\LessonImageController;
 use App\Http\Controllers\AdsController;
+use App\Http\Controllers\AdsWatchController;
 
 
 
@@ -33,7 +34,9 @@ Route::middleware('auth')->group(function () {
      Route::get('/lesson-images/{filename}', [LessonImageController::class, 'show'])
     ->name('lesson.image');
 
-
+    // Ads Watch Controller
+    Route::post('/adswatch', AdsWatchController::class)
+    ->name('adswatch');
 });
 
 
@@ -48,5 +51,9 @@ Route::middleware('auth')->group(function () {
 
     Route::post('/adsserver', AdsController::class)
     ->name('adsserver');
+
+   
+
+
 
 require __DIR__.'/auth.php';
