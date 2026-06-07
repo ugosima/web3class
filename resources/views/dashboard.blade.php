@@ -470,10 +470,13 @@
                 return;
             }
 
+            const showSuccess = () => showCopyAlert('Link copied');
+            const showFailure = () => showCopyAlert('Unable to copy link', true);
+
             if (navigator.clipboard) {
                 navigator.clipboard.writeText(link)
-                    .then(() => showPopup('welcomePopup', 'Link copied'))
-                    .catch(() => showPopup('welcomePopup', 'Unable to copy link'));
+                    .then(showSuccess)
+                    .catch(showFailure);
                 return;
             }
 
@@ -481,9 +484,31 @@
             input.value = link;
             document.body.appendChild(input);
             input.select();
-            document.execCommand('copy');
+            const copied = document.execCommand('copy');
             input.remove();
-            showPopup('welcomePopup', 'Link copied');
+
+            if (copied) {
+                showSuccess();
+            } else {
+                showFailure();
+            }
+        }
+
+        function showCopyAlert(message, isError = false) {
+            const alert = document.getElementById('copyLinkAlert');
+            if (!alert) {
+                return;
+            }
+
+            alert.textContent = message;
+            alert.classList.remove('hidden', 'opacity-0');
+            alert.classList.toggle('bg-emerald-500', !isError);
+            alert.classList.toggle('bg-red-500', isError);
+            clearTimeout(window.copyLinkAlertTimeout);
+            window.copyLinkAlertTimeout = setTimeout(() => {
+                alert.classList.add('opacity-0');
+                setTimeout(() => alert.classList.add('hidden'), 200);
+            }, 1800);
         }
 
         function openReferralModal() {
@@ -836,6 +861,10 @@
 
   initializeWatchAdsButton();
 </script>
+
+<div id="copyLinkAlert" class="fixed right-4 top-4 z-50 hidden rounded-full bg-emerald-500 px-5 py-3 text-sm font-semibold text-white shadow-xl shadow-emerald-500/30 opacity-100 transition duration-200">
+    Link copied
+</div>
 
 
 
