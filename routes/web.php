@@ -52,6 +52,16 @@ Route::middleware('auth')->group(function () {
     Route::post('/adsserver', AdsController::class)
     ->name('adsserver');
 
+
+    Route::get('/debug-host', function () {
+    \Log::info([
+        'host' => request()->getHost(),
+        'full_url' => request()->fullUrl(),
+        'ua' => request()->userAgent(),
+    ]);
+
+    return 'logged';
+});     
    
 
 
