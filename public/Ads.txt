@@ -3,7 +3,7 @@ applixir.com, AAE, DIRECT
 google.com, pub-9871897611748477, RESELLER, f08c47fec0942fa0
 appnexus.com, 10080, RESELLER, f5ab79cb980f11d1
 advertising.com, 7126, RESELLER, e1a5b5b6e3255540
-adingo.jp, 27573, RESELLER
+adingo.jp, 27573, RESELLER 
 onetag.com, 775d7b40364f940, DIRECT
 onetag.com, 775d7b40364f940-OB, DIRECT
 yahoo.com, 58905, RESELLER, e1a5b5b6e3255540
